@@ -44,10 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IImgixBuilder.cs" />
     <Compile Include="IImgixOptions.cs" />
     <Compile Include="Imgix.cs" />
-    <Compile Include="ImgixBuilder.cs" />
+    <Compile Include="ImgixImage.cs" />
     <Compile Include="ImgixOptions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

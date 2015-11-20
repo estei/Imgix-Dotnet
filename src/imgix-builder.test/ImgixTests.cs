@@ -5,17 +5,39 @@ namespace imgix_builder.test
     [TestFixture]
     public class ImgixTests
     {
-        [Test]
-        public static void Should_run()
+        private string _imagePath;
+        private string _sourceName;
+
+        [SetUp]
+        public void MainFixtureInit()
         {
-            var subject = new Imgix(new ImgixOptions {SourceName = "TestSource"});
-            var result = subject.NewImage("heyhey/hey.jpg").Url;
+            _imagePath = "heyhey/hey.jpg";
+            _sourceName = "TestSource";
         }
 
-        [Test]
-        public static void Should_have_a_static_version()
+        class NewImage : ImgixTests
         {
-            var result = Imgix.NewImage(new ImgixOptions { SourceName = "TestSource" },"heyhey/hey.jpg").Url;
+            [Test]
+            public void Should_create_new_image_with_the_given_path()
+            {
+                var subject = new Imgix(new ImgixOptions(_sourceName));
+                string result = subject.NewImage(_imagePath);
+                Assert.True(result.EndsWith(_imagePath));
+            }
+
+            [Test]
+            public void Static_version_Should_create_a_new_image_with_the_given_path()
+            {
+                string result = Imgix.NewImage(new ImgixOptions(_sourceName), _imagePath);
+                Assert.True(result.EndsWith(_imagePath));
+            }
+
+            [Test]
+            public void Static_version_Should_create_a_new_image_with_the_source_in_options()
+            {
+                string result = Imgix.NewImage(new ImgixOptions(_sourceName), _imagePath);
+                Assert.True(result.Contains(_sourceName));
+            }
         }
     }
 }
