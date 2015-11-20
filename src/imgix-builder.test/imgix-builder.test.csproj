@@ -50,6 +50,8 @@
   <ItemGroup>
     <Compile Include="ImgixTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestHelpers\ImgixImageAsserts.cs" />
+    <Compile Include="Transforms\SizeTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config">

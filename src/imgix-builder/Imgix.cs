@@ -6,11 +6,13 @@ namespace imgix_builder
     public class Imgix
     {
         private readonly string _source;
+        private readonly bool _useHttps;
 
         public Imgix(IImgixOptions options)
         {
             if (options == null) throw new ArgumentNullException(nameof(options));
             _source = options.SourceName;
+            _useHttps = options.UseHttps;
         }
 
         /// <summary>
@@ -18,7 +20,7 @@ namespace imgix_builder
         /// </summary>
         /// <param name="path">The path to the image</param>
         /// <returns></returns>
-        public ImgixImage NewImage(string path) => new ImgixImage(new Url($"https://{_source}.imgix.net".AppendPathSegment(path)));
+        public ImgixImage NewImage(string path) => new ImgixImage(new Url($"{(_useHttps ? "https" : "http")}://{_source}.imgix.net".AppendPathSegment(path)));
 
         /// <summary>
         /// Creates a new imgix image from a supplied options object
