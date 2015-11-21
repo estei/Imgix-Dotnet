@@ -3,11 +3,19 @@ using Flurl;
 
 namespace imgix_builder
 {
+    /// <summary>
+    /// The Imgix url builder.
+    /// </summary>
     public class Imgix
     {
         private readonly string _source;
         private readonly bool _useHttps;
 
+        /// <summary>
+        /// The base constructor.
+        /// Sets up the Imgix url builder base options.
+        /// </summary>
+        /// <param name="options"></param>
         public Imgix(IImgixOptions options)
         {
             if (options == null) throw new ArgumentNullException(nameof(options));

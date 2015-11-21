@@ -2,6 +2,9 @@
 
 namespace imgix_builder.Transforms
 {
+    /// <summary>
+    /// ImgixImage extension methods that set size related parameters on the Url.
+    /// </summary>
     public static class Size
     {
         /// <summary>

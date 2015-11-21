@@ -3,6 +3,10 @@ using Flurl;
 
 namespace imgix_builder
 {
+    /// <summary>
+    /// The image we link to.
+    /// Object is immutable and will always return a new instance.
+    /// </summary>
     public class ImgixImage
     {
         internal ImgixImage(Url url)
