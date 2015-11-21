@@ -78,5 +78,27 @@ namespace imgix_builder.Transforms
         /// <param name="width">The width value as a string</param>
         /// <returns></returns>
         public static ImgixImage Width(this ImgixImage image, string width) => image.AddParameter("w", width);
+
+        /// <summary>
+        /// Controls how the image is aligned when fit has been set to crop
+        /// </summary>
+        /// <param name="image">The image to transform</param>
+        /// <param name="cropMode">
+        ///     The crop mode value. Can be a comma seperated list.
+        ///     Values: top, bottom, left, right, faces, entropy
+        /// </param>
+        /// <returns></returns>
+        public static ImgixImage Crop(this ImgixImage image, string cropMode) => image.AddParameter("crop", cropMode);
+
+        /// <summary>
+        /// How is the output image fit into the target dimensions.
+        /// </summary>
+        /// <param name="image">The image to transform</param>
+        /// <param name="fit">
+        ///     The fit mode
+        ///     Values: clamp, clip, crop, facearea, fill, max, min, scale
+        /// </param>
+        /// <returns></returns>
+        public static ImgixImage Fit(this ImgixImage image, string fit) => image.AddParameter("fit", fit);
     }
 }

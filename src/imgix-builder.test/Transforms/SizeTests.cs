@@ -118,7 +118,7 @@ namespace imgix_builder.test.Transforms
         private class Width_with_string : SizeTests
         {
             [Test]
-            public void Should_add_a_query_parameter_called_w_with_the_given_float_value()
+            public void Should_add_a_query_parameter_called_w_with_the_given_string_value()
             {
                 //Arrange
                 const string width = "0.9";
@@ -126,6 +126,34 @@ namespace imgix_builder.test.Transforms
                 var result = _image.Width(width);
                 //Assert
                 ImgixImageAsserts.HasQueryParameter(result, "w", width);
+            }
+        }
+
+        private class Crop_with_string : SizeTests
+        {
+            [Test]
+            public void Should_add_a_query_parameter_called_crop_with_the_given_string_value()
+            {
+                //Arrange
+                const string crop = "top";
+                //Act
+                var result = _image.Crop(crop);
+                //Assert
+                ImgixImageAsserts.HasQueryParameter(result, "crop", crop);
+            }
+        }
+
+        private class Fit_with_string : SizeTests
+        {
+            [Test]
+            public void Should_add_a_query_parameter_called_fit_with_the_given_string_value()
+            {
+                //Arrange
+                const string fit = "clip";
+                //Act
+                var result = _image.Fit(fit);
+                //Assert
+                ImgixImageAsserts.HasQueryParameter(result, "fit", fit);
             }
         }
     }
