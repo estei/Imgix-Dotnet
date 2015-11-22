@@ -10,9 +10,9 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>A fluent link builder for imgix.com</description>
     <releaseNotes>
-	0.0.1 - Library created
-	</releaseNotes>
-    <copyright>Copyright 2015</copyright>
+0.0.1 - Library created
+	  </releaseNotes>
+    <copyright>Copyright 2015 Rasmus Lauridsen</copyright>
     <tags>imgix fluent link url builder2</tags>
     <dependencies>
       <dependency id="SampleDependency" version="1.0" />

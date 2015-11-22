@@ -10,9 +10,9 @@ A fluent imgix url builder library
 
 ##TODO
 
-* Create Nuget Package
-* Create build
 * setup github repo
+* Create build
+* Create Nuget Package
 * Documentation
 	* Getting started
 	* General usage
