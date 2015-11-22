@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 
-namespace imgix_builder.Transforms
+namespace Imgix_LinkBuilder.Transforms.Size
 {
     /// <summary>
     /// ImgixImage extension methods that set size related parameters on the Url.
@@ -16,9 +16,7 @@ namespace imgix_builder.Transforms
         /// </param>
         /// <returns></returns>
         public static ImgixImage Rect(this ImgixImage image, string dimensions)
-        {
-            return image.AddParameter("rect", dimensions);
-        }
+            => image.AddParameter("rect", dimensions);
 
         /// <summary>
         /// Selects a sub-reqion of the image to use for processing
@@ -30,9 +28,7 @@ namespace imgix_builder.Transforms
         /// <param name="height">The height of the rectangle</param>
         /// <returns></returns>
         public static ImgixImage Rect(this ImgixImage image, int x, int y, int width, int height)
-        {
-            return image.Rect($"{x},{y},{width},{height}");
-        }
+            => image.Rect($"{x},{y},{width},{height}");
 
         /// <summary>
         /// Sets the output height of the transformed image.

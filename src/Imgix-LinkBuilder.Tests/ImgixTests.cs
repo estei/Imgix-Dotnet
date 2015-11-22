@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 
-namespace imgix_builder.test
+namespace Imgix_LinkBuilder.Tests
 {
     [TestFixture]
     public class ImgixTests
@@ -42,6 +42,15 @@ namespace imgix_builder.test
             }
 
             [Test]
+            public void Should_create_new_image_using_http_if_useHttps_is_false_in_options()
+            {
+                var subject = new Imgix(new ImgixOptions(_sourceName, false));
+                string result = subject.NewImage(_imagePath);
+                Assert.True(result.StartsWith("http"));
+                Assert.False(result.StartsWith("https"));
+            }
+
+            [Test]
             public void Static_version_Should_create_a_new_image_with_the_given_path()
             {
                 string result = Imgix.NewImage(new ImgixOptions(_sourceName), _imagePath);
@@ -60,6 +69,14 @@ namespace imgix_builder.test
             {
                 string result = Imgix.NewImage(new ImgixOptions(_sourceName, true), _imagePath);
                 Assert.True(result.StartsWith("https"));
+            }
+
+            [Test]
+            public void Static_version_Should_create_a_new_image_using_http_useHttps_is_false_in_options()
+            {
+                string result = Imgix.NewImage(new ImgixOptions(_sourceName, false), _imagePath);
+                Assert.True(result.StartsWith("http"));
+                Assert.False(result.StartsWith("https"));
             }
         }
     }

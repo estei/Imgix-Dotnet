@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace imgix_builder
+namespace Imgix_LinkBuilder
 {
     /// <summary>
     /// Basic options

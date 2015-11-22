@@ -1,7 +1,7 @@
 ﻿using System;
 using Flurl;
 
-namespace imgix_builder
+namespace Imgix_LinkBuilder
 {
     /// <summary>
     /// The Imgix url builder.
@@ -28,7 +28,8 @@ namespace imgix_builder
         /// </summary>
         /// <param name="path">The path to the image</param>
         /// <returns></returns>
-        public ImgixImage NewImage(string path) => new ImgixImage(new Url($"{(_useHttps ? "https" : "http")}://{_source}.imgix.net".AppendPathSegment(path)));
+        public ImgixImage NewImage(string path) =>
+            new ImgixImage(new Url($"{(_useHttps ? "https" : "http")}://{_source}.imgix.net".AppendPathSegment(path)));
 
         /// <summary>
         /// Creates a new imgix image from a supplied options object

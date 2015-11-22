@@ -1,4 +1,4 @@
-﻿namespace imgix_builder
+﻿namespace Imgix_LinkBuilder
 {
     /// <summary>
     /// Imgix builder options.

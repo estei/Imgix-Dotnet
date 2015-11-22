@@ -1,9 +1,9 @@
 ﻿using System.Globalization;
-using imgix_builder.test.TestHelpers;
-using imgix_builder.Transforms;
+using Imgix_LinkBuilder.Tests.TestHelpers;
+using Imgix_LinkBuilder.Transforms.Size;
 using NUnit.Framework;
 
-namespace imgix_builder.test.Transforms
+namespace Imgix_LinkBuilder.Tests.Transforms
 {
     [TestFixture]
     public class SizeTests

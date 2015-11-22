@@ -1,7 +1,7 @@
 using System;
 using Flurl;
 
-namespace imgix_builder
+namespace Imgix_LinkBuilder
 {
     /// <summary>
     /// The image we link to.
@@ -9,7 +9,7 @@ namespace imgix_builder
     /// </summary>
     public class ImgixImage
     {
-        internal ImgixImage(Url url)
+        internal ImgixImage(string url)
         {
             if (url == null) throw new ArgumentNullException(nameof(url));
             Url = url;
@@ -26,7 +26,8 @@ namespace imgix_builder
         /// <param name="name">The name of the parameter</param>
         /// <param name="value">The value</param>
         /// <returns></returns>
-        public ImgixImage AddParameter(string name, string value) => new ImgixImage(Url.SetQueryParam(name, value));
+        public ImgixImage AddParameter(string name, string value)
+            => new ImgixImage(Url.SetQueryParam(name, value));
 
         /// <summary>
 		/// Implicit conversion from ImgixImage to String.

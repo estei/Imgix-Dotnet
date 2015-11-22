@@ -2,7 +2,7 @@
 using Flurl;
 using NUnit.Framework;
 
-namespace imgix_builder.test.TestHelpers
+namespace Imgix_LinkBuilder.Tests.TestHelpers
 {
     public static class ImgixImageAsserts
     {
