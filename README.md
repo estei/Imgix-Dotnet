@@ -7,22 +7,3 @@ A fluent imgix url builder library
 ##Getting started
 
 ##Changes
-
-##TODO
-
-* setup github repo
-* Create build
-* Create Nuget Package
-* Documentation
-	* Getting started
-	* General usage
-* Shore up sources
-    * Support for own domains
-	* Support for multiple sources and sharding
-* transforms
-	* add the rest of the transform classes
-* Support more frameworks
-	* .NET Core Package Support
-	* 3.5?
-	* 2.0?
-* Decide on Flurl - Flurl is 4.0+
