@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("imgix-builder.test")]
+[assembly: AssemblyTitle("Imgix-LinkBuilder.Test")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("imgix-builder.test")]
+[assembly: AssemblyCompany("Rasmus Lauridsen")]
+[assembly: AssemblyProduct("Imgix-LinkBuilder.Test")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
