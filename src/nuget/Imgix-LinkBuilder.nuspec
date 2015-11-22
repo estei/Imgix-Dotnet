@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Imgix-LinkBuilder</id>
+    <version>0.0.1</version>
+    <authors>Rasmus Lauridsen</authors>
+    <licenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</licenseUrl>
+    <projectUrl>http://PROJECT_URL_HERE_OR_DELETE_THIS_LINE</projectUrl>
+    <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A fluent link builder for imgix.com</description>
+    <releaseNotes>
+	0.0.1 - Library created
+	</releaseNotes>
+    <copyright>Copyright 2015</copyright>
+    <tags>imgix fluent link url builder2</tags>
+    <dependencies>
+      <dependency id="SampleDependency" version="1.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="..\Imgix-LinkBuilder\bin\Release\Imgix-LinkBuilder.*" target="lib\net40" />
+  </files>
+</package>
