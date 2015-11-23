@@ -2,17 +2,16 @@
 <package >
   <metadata>
     <id>Imgix-LinkBuilder</id>
-    <version>0.0.1</version>
+    <version>0.0.0</version>
     <authors>Rasmus Lauridsen</authors>
     <licenseUrl>https://raw.githubusercontent.com/estei/Imgix-LinkBuilder/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/estei/Imgix-LinkBuilder</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>A fluent link builder for imgix.com</description>
     <releaseNotes>
-0.0.1 - Library created
 	  </releaseNotes>
     <copyright>Copyright 2015 Rasmus Lauridsen</copyright>
-    <tags>imgix fluent link url builder2</tags>
+    <tags>imgix fluent link url builder</tags>
     <dependencies>
       <dependency id="Flurl" version="1.0.10" />
     </dependencies>

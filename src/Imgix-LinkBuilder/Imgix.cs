@@ -38,5 +38,14 @@ namespace Imgix_LinkBuilder
         /// <param name="path">The path to the image</param>
         /// <returns></returns>
         public static ImgixImage NewImage(IImgixOptions options, string path) => new Imgix(options).NewImage(path);
+
+        /// <summary>
+        /// Creates a new imgix image from a supplied sourceName and path
+        /// </summary>
+        /// <param name="sourceName">The source name</param>
+        /// <param name="path">The path to the image</param>
+        /// <param name="useHttps">Is the source https. Default: true</param>
+        /// <returns></returns>
+        public static ImgixImage NewImage(string sourceName, string path, bool useHttps = true) => NewImage(new ImgixOptions(sourceName, useHttps), path);
     }
 }
