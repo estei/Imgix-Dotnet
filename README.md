@@ -25,7 +25,7 @@ var result = Imgix.NewImage("assets", "blog/woman-hat.jpg")
                   .EllipseMask()
                   .Fit("crop")
                   .Crop("faces")
-                  .AddParameter("fm", "png")
+                  .AddParameter("fm", "png") //If there is no extension method for a transform just add a parameter.
 ```
 [![Example](https://assets.imgix.net/blog/woman-hat.jpg?w=200&h=200&mask=ellipse&fit=crop&crop=faces&fm=png)](https://assets.imgix.net/blog/woman-hat.jpg?w=200&h=200&mask=ellipse&fit=crop&crop=faces&fm=png)
 
