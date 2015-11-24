@@ -12,16 +12,23 @@ A fluent imgix link builder library.<br/>
 To get started install the package with the following command
 
 ```
-PM> Install-Package Imgix-LinkBuilder
+PM> Install-Package Imgix-LinkBuilder -Pre
 ```
 
 Once you have installed the package to your project, you can get started creating image links.
 
 ``` csharp
-/* https://source.imgix.net/path/to_image/file.jpg?w=2000&h=200 */
-var result = Imgix.NewImage("source", "path/to_image/file.jpg")
-                .Width(2000)
-                .Height(200);
+/* https://assets.imgix.net/blog/woman-hat.jpg?w=200&h=200&mask=ellipse&fit=crop&crop=faces&fm=png */
+var result = Imgix.NewImage("assets", "blog/woman-hat.jpg")
+                  .Width(200)
+                  .Height(200)
+                  .EllipseMask()
+                  .Fit("crop")
+                  .Crop("faces")
+                  .AddParameter("fm", "png")
 ```
- 
+[![Example](https://assets.imgix.net/blog/woman-hat.jpg?w=200&h=200&mask=ellipse&fit=crop&crop=faces&fm=png)](https://assets.imgix.net/blog/woman-hat.jpg?w=200&h=200&mask=ellipse&fit=crop&crop=faces&fm=png)
+
+*Example image from the [imgix sandbox](https://sandbox.imgix.com/create)*
+
 ##Changes
