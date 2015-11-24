@@ -52,7 +52,8 @@
     <Compile Include="ImgixTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestHelpers\ImgixImageAsserts.cs" />
-    <Compile Include="Transforms\SizeTests.cs" />
+    <Compile Include="Transforms\MaskExtensionsTests.cs" />
+    <Compile Include="Transforms\SizeExtensionsTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Imgix-LinkBuilder\Imgix-LinkBuilder.csproj">

@@ -5,7 +5,7 @@ namespace Imgix_LinkBuilder.Transforms.Size
     /// <summary>
     /// ImgixImage extension methods that set size related parameters on the Url.
     /// </summary>
-    public static class Size
+    public static class SizeExtensions
     {
         /// <summary>
         /// Selects a sub-reqion of the image to use for processing

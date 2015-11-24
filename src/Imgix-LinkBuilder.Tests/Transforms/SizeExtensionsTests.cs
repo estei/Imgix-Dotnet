@@ -6,7 +6,7 @@ using NUnit.Framework;
 namespace Imgix_LinkBuilder.Tests.Transforms
 {
     [TestFixture]
-    public class SizeTests
+    public class SizeExtensionsTests
     {
         private ImgixImage _image;
 
@@ -15,7 +15,7 @@ namespace Imgix_LinkBuilder.Tests.Transforms
         {
             _image = Imgix.NewImage(new ImgixOptions("sourceName"), "some/path/to/some/image.jpg");
         }
-        private class Rect_with_dimensions_string : SizeTests
+        private class Rect_with_dimensions_string : SizeExtensionsTests
         {
             [Test]
             public void Should_add_a_query_parameter_called_rect_with_value_from_dimensions()
@@ -29,7 +29,7 @@ namespace Imgix_LinkBuilder.Tests.Transforms
             }
         }
 
-        private class Rect_with_seperate_integers : SizeTests
+        private class Rect_with_seperate_integers : SizeExtensionsTests
         {
             [Test]
             public void Should_add_a_query_parameter_called_rect_with_values_given()
@@ -47,7 +47,7 @@ namespace Imgix_LinkBuilder.Tests.Transforms
             }
         }
 
-        private class Height_with_integer : SizeTests
+        private class Height_with_integer : SizeExtensionsTests
         {
             [Test]
             public void Should_add_a_query_parameter_called_h_with_the_given_integer_value()
@@ -60,7 +60,7 @@ namespace Imgix_LinkBuilder.Tests.Transforms
                 ImgixImageAsserts.HasQueryParameter(result, "h", height.ToString());
             }
         }
-        private class Height_with_float : SizeTests
+        private class Height_with_float : SizeExtensionsTests
         {
             [Test]
             public void Should_add_a_query_parameter_called_h_with_the_given_float_value()
@@ -74,7 +74,7 @@ namespace Imgix_LinkBuilder.Tests.Transforms
             }
         }
 
-        private class Height_with_string : SizeTests
+        private class Height_with_string : SizeExtensionsTests
         {
             [Test]
             public void Should_add_a_query_parameter_called_h_with_the_given_float_value()
@@ -88,7 +88,7 @@ namespace Imgix_LinkBuilder.Tests.Transforms
             }
         }
 
-        private class Width_with_integer : SizeTests
+        private class Width_with_integer : SizeExtensionsTests
         {
             [Test]
             public void Should_add_a_query_parameter_called_w_with_the_given_integer_value()
@@ -101,7 +101,7 @@ namespace Imgix_LinkBuilder.Tests.Transforms
                 ImgixImageAsserts.HasQueryParameter(result, "w", width.ToString());
             }
         }
-        private class Width_with_float : SizeTests
+        private class Width_with_float : SizeExtensionsTests
         {
             [Test]
             public void Should_add_a_query_parameter_called_w_with_the_given_float_value()
@@ -115,7 +115,7 @@ namespace Imgix_LinkBuilder.Tests.Transforms
             }
         }
 
-        private class Width_with_string : SizeTests
+        private class Width_with_string : SizeExtensionsTests
         {
             [Test]
             public void Should_add_a_query_parameter_called_w_with_the_given_string_value()
@@ -129,7 +129,7 @@ namespace Imgix_LinkBuilder.Tests.Transforms
             }
         }
 
-        private class Crop_with_string : SizeTests
+        private class Crop_with_string : SizeExtensionsTests
         {
             [Test]
             public void Should_add_a_query_parameter_called_crop_with_the_given_string_value()
@@ -143,7 +143,7 @@ namespace Imgix_LinkBuilder.Tests.Transforms
             }
         }
 
-        private class Fit_with_string : SizeTests
+        private class Fit_with_string : SizeExtensionsTests
         {
             [Test]
             public void Should_add_a_query_parameter_called_fit_with_the_given_string_value()
