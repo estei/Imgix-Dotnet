@@ -51,8 +51,8 @@
     <Compile Include="ImgixImage.cs" />
     <Compile Include="ImgixOptions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Transforms\Mask.cs" />
-    <Compile Include="Transforms\Size.cs" />
+    <Compile Include="Transforms\MaskExtensions.cs" />
+    <Compile Include="Transforms\SizeExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
