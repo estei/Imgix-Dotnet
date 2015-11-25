@@ -31,4 +31,25 @@ var result = Imgix.NewImage("assets", "blog/woman-hat.jpg")
 
 *Example image from the [imgix sandbox](https://sandbox.imgix.com/create)*
 
+The ImgixImage class is immutable so it is always a new image that is returned. 
+This means that you can use the same image to create multiple resulting images, without worrying about shared state.
+
+Multiple different formats are quickly created in a very dry way.
+
+``` csharp
+
+//Setting up the base shape and format of the image
+var baseImage = Imgix.NewImage("assets", "blog/woman-hat.jpg")
+    .Fit("crop")
+    .Crop("faces")
+    .AddParameter("faceindex", "1");
+//Creating multiple sizes
+var image400x200 = baseImage.Width(400).Height(200);
+var image200x400 = baseImage.Width(200).Height(400);
+
+```
+[![Example](https://assets.imgix.net/blog/woman-hat.jpg?fit=crop&crop=faces&faceindex=1&w=400&h=200)](https://assets.imgix.net/blog/woman-hat.jpg?fit=crop&crop=faces&faceindex=1&w=400&h=200) 400x200px 
+[![Example](https://assets.imgix.net/blog/woman-hat.jpg?fit=crop&crop=faces&faceindex=1&w=200&h=400)](https://assets.imgix.net/blog/woman-hat.jpg?fit=crop&crop=faces&faceindex=1&w=200&h=400) 200x400px
+
+*Example image from the [imgix sandbox](https://sandbox.imgix.com/create)*
 ##Changes
