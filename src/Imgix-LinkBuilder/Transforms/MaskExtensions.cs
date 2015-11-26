@@ -8,7 +8,7 @@
         /// <summary>
         /// Adds a mask parameter with the value ellipse
         /// </summary>
-        /// <param name="image"></param>
+        /// <param name="image">The image to transform</param>
         /// <returns></returns>
         public static ImgixImage EllipseMask(this ImgixImage image) => image.AddParameter("mask", "ellipse");
 
