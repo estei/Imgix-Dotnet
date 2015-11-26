@@ -15,7 +15,7 @@ namespace Imgix_LinkBuilder.Tests.Transforms
         {
             _image = Imgix.NewImage(new ImgixOptions("sourceName"), "some/path/to/some/image.jpg");
         }
-        private class Rect_with_dimensions_string : SizeExtensionsTests
+        public class Rect_with_dimensions_string : SizeExtensionsTests
         {
             [Test]
             public void Should_add_a_query_parameter_called_rect_with_value_from_dimensions()

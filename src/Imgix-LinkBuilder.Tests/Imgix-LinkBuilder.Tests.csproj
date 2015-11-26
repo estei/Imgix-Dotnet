@@ -54,6 +54,7 @@
     <Compile Include="TestHelpers\ImgixImageAsserts.cs" />
     <Compile Include="Transforms\FaceDetectionExtensionsTests.cs" />
     <Compile Include="Transforms\MaskExtensionsTests.cs" />
+    <Compile Include="Transforms\RotationExtensionsTests.cs" />
     <Compile Include="Transforms\SizeExtensionsTests.cs" />
   </ItemGroup>
   <ItemGroup>
