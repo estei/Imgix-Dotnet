@@ -40,5 +40,31 @@
         /// <returns></returns>
         public static ImgixImage TrimMeanDifference(this ImgixImage image, int value)
             => image.AddParameter("trimmd", value.ToString());
+
+        /// <summary>
+        /// Defines the standard deviation among pixels in a border.
+        /// Only valid when trim is set to auto
+        /// </summary>
+        /// <param name="image">The image to transform</param>
+        /// <param name="value">
+        ///     The standard deviation
+        ///     Default: 10
+        /// </param>
+        /// <returns></returns>
+        public static ImgixImage TrimStandardDeviation(this ImgixImage image, int value)
+            => image.AddParameter("trimsd", value.ToString());
+
+
+        /// <summary>
+        /// DEfines the tolerance when trim has been set to color.
+        /// </summary>
+        /// <param name="image">The image to transform</param>
+        /// <param name="value">
+        ///     The tolerance
+        ///     Default: 0
+        /// </param>
+        /// <returns></returns>
+        public static ImgixImage TrimTolerance(this ImgixImage image, int value)
+            => image.AddParameter("trimtol", value.ToString());
     }
 }
