@@ -55,6 +55,7 @@
     <Compile Include="Transforms\AutomaticExtensionsTests.cs" />
     <Compile Include="Transforms\FaceDetectionExtensionsTests.cs" />
     <Compile Include="Transforms\MaskExtensionsTests.cs" />
+    <Compile Include="Transforms\PixelDensityExtensionsTests.cs" />
     <Compile Include="Transforms\RotationExtensionsTests.cs" />
     <Compile Include="Transforms\SizeExtensionsTests.cs" />
   </ItemGroup>
