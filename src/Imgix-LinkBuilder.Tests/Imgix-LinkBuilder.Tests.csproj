@@ -52,6 +52,7 @@
     <Compile Include="ImgixTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestHelpers\ImgixImageAsserts.cs" />
+    <Compile Include="Transforms\AutomaticExtensionsTests.cs" />
     <Compile Include="Transforms\FaceDetectionExtensionsTests.cs" />
     <Compile Include="Transforms\MaskExtensionsTests.cs" />
     <Compile Include="Transforms\RotationExtensionsTests.cs" />
