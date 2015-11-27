@@ -59,6 +59,7 @@
     <Compile Include="Transforms\RotationExtensions.cs" />
     <Compile Include="Transforms\MaskExtensions.cs" />
     <Compile Include="Transforms\SizeExtensions.cs" />
+    <Compile Include="Transforms\TrimExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
