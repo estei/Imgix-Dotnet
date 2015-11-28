@@ -57,6 +57,7 @@
     <Compile Include="Transforms\FaceDetectionExtensions.cs" />
     <Compile Include="Transforms\NoiseExtensions.cs" />
     <Compile Include="Transforms\PaddingExtensions.cs" />
+    <Compile Include="Transforms\PaletteExtensions.cs" />
     <Compile Include="Transforms\PDFExtensions.cs" />
     <Compile Include="Transforms\PixelDensityExtensions.cs" />
     <Compile Include="Transforms\RotationExtensions.cs" />

@@ -57,6 +57,7 @@
     <Compile Include="Transforms\BorderExtensionsTests.cs" />
     <Compile Include="Transforms\NoiseExtensionsTests.cs" />
     <Compile Include="Transforms\PaddingExtensionsTests.cs" />
+    <Compile Include="Transforms\PaletteExtensionsTests.cs" />
     <Compile Include="Transforms\PDFExtensionsTests.cs" />
     <Compile Include="Transforms\StylizeExtensionsTests.cs" />
     <Compile Include="Transforms\TransformsTests.cs" />
