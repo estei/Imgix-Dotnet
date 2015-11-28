@@ -81,22 +81,38 @@ namespace Imgix_LinkBuilder.Tests.Transforms
 
         public class BlendCrop : BlendExtensionsTests
         {
-
+            [Test]
+            public void Given_a_string_it_should_set_a_parameter_bc_with_the_string_as_value()
+            {
+                ImgixImageAsserts.HasQueryParameter(Image.BlendCrop("faces"), "bc", "faces");
+            }
         }
 
         public class BlendSize : BlendExtensionsTests
         {
-
+            [Test]
+            public void Given_a_string_it_should_set_a_parameter_bc_with_the_string_as_value()
+            {
+                ImgixImageAsserts.HasQueryParameter(Image.BlendSize("inherit"), "bs", "inherit");
+            }
         }
 
         public class BlendXPosition : BlendExtensionsTests
         {
-
+            [Test]
+            public void Given_an_integer_it_should_add_a_parameter_bx_with_the_value_of_the_integer()
+            {
+                ImgixImageAsserts.HasQueryParameter(Image.BlendXPosition(50), "bx", "50");
+            }
         }
 
         public class BlendYPosition : BlendExtensionsTests
         {
-
+            [Test]
+            public void Given_an_integer_it_should_add_a_parameter_by_with_the_value_of_the_integer()
+            {
+                ImgixImageAsserts.HasQueryParameter(Image.BlendYPosition(50), "by", "50");
+            }
         }
     }
 }
