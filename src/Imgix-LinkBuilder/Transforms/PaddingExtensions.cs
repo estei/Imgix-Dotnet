@@ -1,4 +1,4 @@
-﻿namespace Imgix_LinkBuilder.Transforms
+﻿namespace Imgix_LinkBuilder.Transforms.Padding
 {
     /// <summary>
     /// ImgixImage extension methods that sets padding related parameters on the Url.

@@ -1,4 +1,4 @@
-﻿namespace Imgix_LinkBuilder.Transforms
+﻿namespace Imgix_LinkBuilder.Transforms.Noise
 {
     /// <summary>
     /// ImgixImage extension methods that sets noise related parameters on the Url.

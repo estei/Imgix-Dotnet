@@ -1,4 +1,4 @@
-﻿namespace Imgix_LinkBuilder.Transforms
+﻿namespace Imgix_LinkBuilder.Transforms.Blend
 {
     /// <summary>
     /// ImgixImage extension methods that sets blend related parameters on the Url.

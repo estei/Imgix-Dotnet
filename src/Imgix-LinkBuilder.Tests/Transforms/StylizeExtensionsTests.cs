@@ -1,5 +1,5 @@
 ﻿using Imgix_LinkBuilder.Tests.TestHelpers;
-using Imgix_LinkBuilder.Transforms;
+using Imgix_LinkBuilder.Transforms.Stylize;
 using NUnit.Framework;
 
 namespace Imgix_LinkBuilder.Tests.Transforms

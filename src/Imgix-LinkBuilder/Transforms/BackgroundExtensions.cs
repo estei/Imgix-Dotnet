@@ -1,4 +1,4 @@
-﻿namespace Imgix_LinkBuilder.Transforms
+﻿namespace Imgix_LinkBuilder.Transforms.Background
 {
     /// <summary>
     /// ImgixImage extension methods that sets background related parameters on the Url.

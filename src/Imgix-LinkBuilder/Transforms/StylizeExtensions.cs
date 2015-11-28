@@ -1,4 +1,4 @@
-﻿namespace Imgix_LinkBuilder.Transforms
+﻿namespace Imgix_LinkBuilder.Transforms.Stylize
 {
     /// <summary>
     /// ImgixImage extension methods that sets stylize related parameters on the Url.

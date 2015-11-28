@@ -1,4 +1,4 @@
-﻿namespace Imgix_LinkBuilder.Transforms
+﻿namespace Imgix_LinkBuilder.Transforms.Palette
 {
     /// <summary>
     /// Extensions for extracting color palettes out of images

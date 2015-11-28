@@ -1,4 +1,4 @@
-﻿namespace Imgix_LinkBuilder.Transforms
+﻿namespace Imgix_LinkBuilder.Transforms.Trim
 {
     /// <summary>
     /// ImgixImage extension methods that sets trim related parameters on the Url.

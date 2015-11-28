@@ -1,4 +1,4 @@
-﻿namespace Imgix_LinkBuilder.Transforms
+﻿namespace Imgix_LinkBuilder.Transforms.PDF
 {
     /// <summary>
     /// ImgixImage extension methods that sets PDF related parameters on the Url.
