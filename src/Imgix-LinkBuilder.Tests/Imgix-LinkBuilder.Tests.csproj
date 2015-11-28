@@ -55,6 +55,7 @@
     <Compile Include="Transforms\AutomaticExtensionsTests.cs" />
     <Compile Include="Transforms\BorderExtensionsTests.cs" />
     <Compile Include="Transforms\PaddingExtensionsTests.cs" />
+    <Compile Include="Transforms\StylizeExtensionsTests.cs" />
     <Compile Include="Transforms\TransformsTests.cs" />
     <Compile Include="Transforms\FaceDetectionExtensionsTests.cs" />
     <Compile Include="Transforms\MaskExtensionsTests.cs" />
