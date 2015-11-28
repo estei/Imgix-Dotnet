@@ -66,6 +66,7 @@
     <Compile Include="Transforms\SizeExtensions.cs" />
     <Compile Include="Transforms\StylizeExtensions.cs" />
     <Compile Include="Transforms\TrimExtensions.cs" />
+    <Compile Include="Transforms\WatermarkExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

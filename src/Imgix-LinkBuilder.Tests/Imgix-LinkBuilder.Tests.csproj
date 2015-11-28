@@ -68,6 +68,7 @@
     <Compile Include="Transforms\RotationExtensionsTests.cs" />
     <Compile Include="Transforms\SizeExtensionsTests.cs" />
     <Compile Include="Transforms\TrimExtensionsTests.cs" />
+    <Compile Include="Transforms\WatermarkExtensionsTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Imgix-LinkBuilder\Imgix-LinkBuilder.csproj">
