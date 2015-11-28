@@ -53,6 +53,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Transforms\AutomaticExtensions.cs" />
     <Compile Include="Transforms\BackgroundExtensions.cs" />
+    <Compile Include="Transforms\BlendExtensions.cs" />
     <Compile Include="Transforms\BorderExtensions.cs" />
     <Compile Include="Transforms\FaceDetectionExtensions.cs" />
     <Compile Include="Transforms\NoiseExtensions.cs" />

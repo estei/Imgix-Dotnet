@@ -54,6 +54,7 @@
     <Compile Include="TestHelpers\ImgixImageAsserts.cs" />
     <Compile Include="Transforms\AutomaticExtensionsTests.cs" />
     <Compile Include="Transforms\BackgroundExtensionsTests.cs" />
+    <Compile Include="Transforms\BlendExtensionsTests.cs" />
     <Compile Include="Transforms\BorderExtensionsTests.cs" />
     <Compile Include="Transforms\NoiseExtensionsTests.cs" />
     <Compile Include="Transforms\PaddingExtensionsTests.cs" />

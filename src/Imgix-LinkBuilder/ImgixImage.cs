@@ -26,7 +26,7 @@ namespace Imgix_LinkBuilder
         /// <param name="name">The name of the parameter</param>
         /// <param name="value">The value</param>
         /// <returns></returns>
-        public ImgixImage AddParameter(string name, string value)
+        public ImgixImage AddParameter(string name, object value)
             => new ImgixImage(Url.SetQueryParam(name, value));
 
         /// <summary>
