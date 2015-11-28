@@ -25,7 +25,7 @@ namespace Imgix_LinkBuilder.Tests.Transforms
             }
         }
 
-        public class Prefix : PaletteExtensionsTests
+        public class CSSPrefix : PaletteExtensionsTests
         {
             [Test]
             public void Given_a_string_it_will_add_a_parameter_prefix_with_the_value_of_the_string()
