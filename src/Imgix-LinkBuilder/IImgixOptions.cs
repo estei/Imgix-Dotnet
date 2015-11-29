@@ -7,7 +7,7 @@
     public interface IImgixOptions
     {
         /// <summary>
-        /// should return the source name in imgix.
+        /// Should return the source name in imgix.
         /// </summary>
         string SourceName { get; }
 
@@ -15,5 +15,10 @@
         /// Should the builder use https
         /// </summary>
         bool UseHttps { get; }
+
+        /// <summary>
+        /// The token used for signing urls
+        /// </summary>
+        string SecureUrlToken { get; }
     }
 }
