@@ -27,7 +27,7 @@
         /// </param>
         /// <returns></returns>
         public static ImgixImage ChromaSubsampling(this ImgixImage image, int value)
-            => image.AddParameter("chromasub", value.ToString());
+            => image.AddParameter("chromasub", value);
 
 
         /// <summary>

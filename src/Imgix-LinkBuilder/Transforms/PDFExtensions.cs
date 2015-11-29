@@ -14,6 +14,6 @@
         /// </param>
         /// <returns></returns>
         public static ImgixImage Page(this ImgixImage image, int value)
-            => image.AddParameter("page", value.ToString());
+            => image.AddParameter("page", value);
     }
 }

@@ -37,6 +37,6 @@
         /// </param>
         /// <returns></returns>
         public static ImgixImage Colors(this ImgixImage image, int value)
-            => image.AddParameter("colors", value.ToString());
+            => image.AddParameter("colors", value);
     }
 }

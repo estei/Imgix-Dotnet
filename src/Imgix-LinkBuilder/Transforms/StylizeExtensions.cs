@@ -15,7 +15,7 @@
         /// </param>
         /// <returns></returns>
         public static ImgixImage Blur(this ImgixImage image, int value)
-            => image.AddParameter("blur", value.ToString());
+            => image.AddParameter("blur", value);
 
         /// <summary>
         /// Adds a half-toning effect to the image
@@ -27,7 +27,7 @@
         /// </param>
         /// <returns></returns>
         public static ImgixImage HalfTone(this ImgixImage image, int value)
-            => image.AddParameter("htn", value.ToString());
+            => image.AddParameter("htn", value);
 
         /// <summary>
         /// Does a monochromatic hue change.
@@ -50,7 +50,7 @@
         /// </param>
         /// <returns></returns>
         public static ImgixImage Pixellate(this ImgixImage image, int value)
-            => image.AddParameter("px", value.ToString());
+            => image.AddParameter("px", value);
 
         /// <summary>
         /// Adds a sepia toning effect to the image
@@ -62,6 +62,6 @@
         /// </param>
         /// <returns></returns>
         public static ImgixImage SepiaTone(this ImgixImage image, int value)
-            => image.AddParameter("sepia", value.ToString());
+            => image.AddParameter("sepia", value);
     }
 }

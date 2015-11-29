@@ -15,7 +15,7 @@
         /// </param>
         /// <returns></returns>
         public static ImgixImage NoiseReductionBlur(this ImgixImage image, int value)
-            => image.AddParameter("nr", value.ToString());
+            => image.AddParameter("nr", value);
 
         /// <summary>
         ///
@@ -27,6 +27,6 @@
         /// </param>
         /// <returns></returns>
         public static ImgixImage NoiseReductionSharpen(this ImgixImage image, int value)
-            => image.AddParameter("nrs", value.ToString());
+            => image.AddParameter("nrs", value);
     }
 }

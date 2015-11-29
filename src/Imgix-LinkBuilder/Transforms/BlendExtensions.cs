@@ -52,7 +52,7 @@
         /// </param>
         /// <returns></returns>
         public static ImgixImage BlendAlpha(this ImgixImage image, int value)
-            => image.AddParameter("balpha", value.ToString());
+            => image.AddParameter("balpha", value);
 
         /// <summary>
         /// Padds the blending image
@@ -63,7 +63,7 @@
         /// </param>
         /// <returns></returns>
         public static ImgixImage BlendPadding(this ImgixImage image, int value)
-            => image.AddParameter("bp", value.ToString());
+            => image.AddParameter("bp", value);
 
         /// <summary>
         /// The width of the blend image

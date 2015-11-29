@@ -16,6 +16,6 @@
         /// </param>
         /// <returns></returns>
         public static ImgixImage Padding(this ImgixImage image, int value)
-            => image.AddParameter("pad", value.ToString());
+            => image.AddParameter("pad", value);
     }
 }

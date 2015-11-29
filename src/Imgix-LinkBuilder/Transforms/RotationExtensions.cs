@@ -36,6 +36,6 @@
         /// <param name="value">The rotation in degrees</param>
         /// <returns></returns>
         public static ImgixImage Rotation(this ImgixImage image, int value)
-            => image.AddParameter("rot", value.ToString());
+            => image.AddParameter("rot", value);
     }
 }
