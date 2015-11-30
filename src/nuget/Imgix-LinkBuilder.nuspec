@@ -9,12 +9,9 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>A fluent link builder for imgix.com</description>
     <releaseNotes>
-	  </releaseNotes>
+	</releaseNotes>
     <copyright>Copyright 2015 Rasmus Lauridsen</copyright>
     <tags>imgix fluent link url builder</tags>
-    <dependencies>
-      <dependency id="Flurl" version="1.0.10" />
-    </dependencies>
   </metadata>
   <files>
     <file src="..\Imgix-LinkBuilder\bin\Release\Imgix-LinkBuilder.*" target="lib\net40" />

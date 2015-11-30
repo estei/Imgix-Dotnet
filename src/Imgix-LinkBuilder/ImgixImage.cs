@@ -1,5 +1,6 @@
 using System;
-using Flurl;
+using System.Globalization;
+using Imgix_LinkBuilder.Extensions;
 
 namespace Imgix_LinkBuilder
 {
@@ -9,16 +10,18 @@ namespace Imgix_LinkBuilder
     /// </summary>
     public class ImgixImage
     {
-        internal ImgixImage(string url)
+        private readonly SecureUrl _url;
+
+        internal ImgixImage(SecureUrl url)
         {
             if (url == null) throw new ArgumentNullException(nameof(url));
-            Url = url;
+            _url = url;
         }
 
         /// <summary>
         /// The url for the image in imgix
         /// </summary>
-        public string Url { get; }
+        public string Url => _url;
 
         /// <summary>
         /// Adds a new parameter to the image
@@ -27,7 +30,17 @@ namespace Imgix_LinkBuilder
         /// <param name="value">The value</param>
         /// <returns></returns>
         public ImgixImage AddParameter(string name, object value)
-            => new ImgixImage(Url.SetQueryParam(name, value));
+            => new ImgixImage(_url.AddParameter(name, value.ToInvariantString()));
+
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>
+        /// A string that represents the current object.
+        /// </returns>
+        /// <filterpriority>2</filterpriority>
+        public override string ToString()
+            => _url.ToString();
 
         /// <summary>
 		/// Implicit conversion from ImgixImage to String.
