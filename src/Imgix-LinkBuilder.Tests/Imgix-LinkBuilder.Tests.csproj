@@ -51,6 +51,7 @@
     <Compile Include="ImgixImageTests.cs" />
     <Compile Include="ImgixTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SecureUrlTests.cs" />
     <Compile Include="TestHelpers\ImgixImageAsserts.cs" />
     <Compile Include="Transforms\AutomaticExtensionsTests.cs" />
     <Compile Include="Transforms\BackgroundExtensionsTests.cs" />

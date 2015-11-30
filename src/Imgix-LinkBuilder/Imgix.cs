@@ -1,5 +1,4 @@
 ﻿using System;
-using Flurl;
 
 namespace Imgix_LinkBuilder
 {
@@ -10,6 +9,7 @@ namespace Imgix_LinkBuilder
     {
         private readonly string _source;
         private readonly bool _useHttps;
+        private readonly string _secureUrlToken;
 
         /// <summary>
         /// The base constructor.
@@ -21,6 +21,7 @@ namespace Imgix_LinkBuilder
             if (options == null) throw new ArgumentNullException(nameof(options));
             _source = options.SourceName;
             _useHttps = options.UseHttps;
+            _secureUrlToken = options.SecureUrlToken;
         }
 
         /// <summary>
@@ -28,8 +29,11 @@ namespace Imgix_LinkBuilder
         /// </summary>
         /// <param name="path">The path to the image</param>
         /// <returns></returns>
-        public ImgixImage NewImage(string path) =>
-            new ImgixImage(new Url($"{(_useHttps ? "https" : "http")}://{_source}.imgix.net".AppendPathSegment(path)));
+        public ImgixImage NewImage(string path)
+        {
+            var escapedPath = path.StartsWith("http") ? Uri.EscapeDataString(path) : Uri.EscapeUriString(path).Replace("?", "%3F");
+            return new ImgixImage(new SecureUrl(_useHttps ? "https" : "http", _source + ".imgix.net", escapedPath, _secureUrlToken, ""));
+        }
 
         /// <summary>
         /// Creates a new imgix image from a supplied options object

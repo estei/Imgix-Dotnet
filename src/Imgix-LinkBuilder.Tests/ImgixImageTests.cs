@@ -48,6 +48,16 @@ namespace Imgix_LinkBuilder.Tests
                 //Assert
                 ImgixImageAsserts.HasQueryParameter(result, "test1", "test1");
             }
+
+            [Test]
+            public void Should_sign_the_image_if_token_is_set()
+            {
+                //Arrange
+                var image = Imgix.NewImage(new ImgixOptions(_sourceName, true, "FOO123bar"), "/users/1.png");
+                //Act
+                //Assert
+                ImgixImageAsserts.HasQueryParameter(image, "s", "6797c24146142d5b40bde3141fd3600c");
+            }
         }
     }
 }
