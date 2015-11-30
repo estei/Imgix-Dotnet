@@ -47,8 +47,10 @@
     <Compile Include="Imgix.cs" />
     <Compile Include="ImgixImage.cs" />
     <Compile Include="ImgixOptions.cs" />
+    <Compile Include="ImgixSource.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SecureUrl.cs" />
+    <Compile Include="ShardingStrategy.cs" />
     <Compile Include="Transforms\AutomaticExtensions.cs" />
     <Compile Include="Transforms\BackgroundExtensions.cs" />
     <Compile Include="Transforms\BlendExtensions.cs" />
