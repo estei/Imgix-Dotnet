@@ -10,7 +10,7 @@ namespace Imgix_LinkBuilder
         private readonly string[] _hosts;
         private readonly ShardingStrategy _shardingStrategy;
         private int _hostsCycleCounter;
-        private readonly int _cycleLength;
+        private readonly int _hostsCount;
 
         /// <summary>
         /// Initializes a new https ImgixSource object with a single host.
@@ -106,13 +106,19 @@ namespace Imgix_LinkBuilder
         /// </param>
         public ImgixSource(string name, string secureUrlToken, string[] hosts, bool isHttps, ShardingStrategy shardingStrategy)
         {
+            if (String.IsNullOrWhiteSpace(name))
+                throw new ArgumentException("Name cannot be empty", nameof(name));
+            if (secureUrlToken == null) throw new ArgumentNullException(nameof(secureUrlToken)+" cannot be null", nameof(secureUrlToken));
+            if (hosts.Length == 0) throw new ArgumentException("Must define atleast one host", nameof(hosts));
+            if (!Enum.IsDefined(typeof (ShardingStrategy), shardingStrategy))
+                throw new ArgumentOutOfRangeException(nameof(shardingStrategy)+" is not a valid sharding strategy", nameof(shardingStrategy));
             Name = name;
             SecureUrlToken = secureUrlToken;
             IsHttps = isHttps;
             _hosts = SanitizeHosts(hosts);
             _shardingStrategy = shardingStrategy;
             _hostsCycleCounter = 0;
-            _cycleLength = _hosts.Length;
+            _hostsCount = _hosts.Length;
         }
 
         /// <summary>
@@ -137,6 +143,8 @@ namespace Imgix_LinkBuilder
         /// <returns></returns>
         public SecureUrl GetUrl(string path)
         {
+            if (String.IsNullOrWhiteSpace(path))
+                throw new ArgumentException("Path cannot be empty", nameof(path));
             switch (_shardingStrategy)
             {
                 case ShardingStrategy.None:
@@ -152,14 +160,14 @@ namespace Imgix_LinkBuilder
 
         private string GetHostFromPathHash(string path)
         {
-            var pos = Math.Abs(path.GetHashCode())%_cycleLength;
+            var pos = Math.Abs(path.GetHashCode())%_hostsCount;
             return _hosts[pos];
         }
 
         private string GetNextHostInCycle()
         {
             var host = _hosts[_hostsCycleCounter];
-            _hostsCycleCounter = (_hostsCycleCounter + 1)%_cycleLength;
+            _hostsCycleCounter = (_hostsCycleCounter + 1)%_hostsCount;
             return host;
         }
 
@@ -177,8 +185,6 @@ namespace Imgix_LinkBuilder
         }
 
         private static string SanitizeHost(string host)
-        {
-            return host.Contains(".") ? host : host + ".imgix.net";
-        }
+            => host.Contains(".") ? host : host + ".imgix.net";
     }
 }
