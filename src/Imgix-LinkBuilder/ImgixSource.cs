@@ -137,9 +137,9 @@ namespace Imgix_LinkBuilder
         public string SecureUrlToken { get; }
 
         /// <summary>
-        ///
+        /// Gets a url for a given path. If sharding is enabled a shard is selected based on the chosen strategy
         /// </summary>
-        /// <param name="path"></param>
+        /// <param name="path">The path to the image</param>
         /// <returns></returns>
         public SecureUrl GetUrl(string path)
         {
@@ -177,7 +177,7 @@ namespace Imgix_LinkBuilder
         private static string[] SanitizeHosts(string[] hosts)
         {
             var sanitizedHosts = new string[hosts.Length];
-            for (var i = 0; i < hosts.Length-1; i++)
+            for (var i = 0; i < hosts.Length; i++)
             {
                 sanitizedHosts[i] = SanitizeHost(hosts[i]);
             }

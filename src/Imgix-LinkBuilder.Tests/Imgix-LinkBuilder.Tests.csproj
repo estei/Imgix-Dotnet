@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ImgixImageTests.cs" />
+    <Compile Include="ImgixSourceTests.cs" />
     <Compile Include="ImgixTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SecureUrlTests.cs" />
