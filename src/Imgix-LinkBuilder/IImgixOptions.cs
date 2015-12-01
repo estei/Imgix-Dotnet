@@ -1,4 +1,6 @@
-﻿namespace Imgix_LinkBuilder
+﻿using System.Collections.Generic;
+
+namespace Imgix_LinkBuilder
 {
     /// <summary>
     /// Imgix builder options.
@@ -7,18 +9,8 @@
     public interface IImgixOptions
     {
         /// <summary>
-        /// Should return the source name in imgix.
+        /// An enumrarable of imgix sources
         /// </summary>
-        string SourceName { get; }
-
-        /// <summary>
-        /// Should the builder use https
-        /// </summary>
-        bool UseHttps { get; }
-
-        /// <summary>
-        /// The token used for signing urls
-        /// </summary>
-        string SecureUrlToken { get; }
+        IEnumerable<ImgixSource> Sources { get; }
     }
 }

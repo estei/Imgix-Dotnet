@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections.Generic;
 
 namespace Imgix_LinkBuilder
 {
@@ -8,32 +8,24 @@ namespace Imgix_LinkBuilder
     public class ImgixOptions : IImgixOptions
     {
         /// <summary>
-        /// Base constructor
+        /// Initializes an options object with multiple sources
         /// </summary>
-        /// <param name="sourceName">The sourcename to to insert into Urls</param>
-        /// <param name="useHttps">Should Urls use https instead of http</param>
-        /// <param name="secureUrlToken">A token used when signing urls</param>
-        public ImgixOptions(string sourceName, bool useHttps = true, string secureUrlToken = "")
+        /// <param name="sources"></param>
+        public ImgixOptions(IEnumerable<ImgixSource> sources )
         {
-            if (sourceName == null) throw new ArgumentNullException(nameof(sourceName));
-            SourceName = sourceName;
-            UseHttps = useHttps;
-            SecureUrlToken = secureUrlToken;
+            Sources = sources;
         }
 
         /// <summary>
-        /// should return the source name in imgix.
+        /// Initializes an options object with a single source
         /// </summary>
-        public string SourceName { get; }
-
+        /// <param name="source"></param>
+        public ImgixOptions(ImgixSource source) : this(new List<ImgixSource> {source})
+        {
+        }
         /// <summary>
-        /// Should the builder use https
+        /// An enumrarable of imgix sources
         /// </summary>
-        public bool UseHttps { get; }
-
-        /// <summary>
-        /// The token used for signing urls
-        /// </summary>
-        public string SecureUrlToken { get; }
+        public IEnumerable<ImgixSource> Sources { get; }
     }
 }

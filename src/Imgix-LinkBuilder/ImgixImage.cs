@@ -1,5 +1,4 @@
 using System;
-using System.Globalization;
 using Imgix_LinkBuilder.Extensions;
 
 namespace Imgix_LinkBuilder

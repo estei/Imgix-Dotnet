@@ -5,6 +5,16 @@ namespace Imgix_LinkBuilder.Tests
     [TestFixture]
     public class ImgixSourceTests
     {
+        public class Ctor : ImgixSourceTests
+        {
+            public void Given_a_host_without_dots_sanitize_to_imgix_net_hostname()
+            {
+                var subject = new ImgixSource("testhost", "testhost");
+                var result = subject.GetUrl("hey/hey.jpg");
+                Assert.True(result.ToString().Contains("testhost.imgix.net"));
+            }
+        }
+
         public class GetUrl : ImgixSourceTests
         {
             [Test]

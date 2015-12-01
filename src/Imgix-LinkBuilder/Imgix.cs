@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Imgix_LinkBuilder
 {
@@ -7,10 +9,7 @@ namespace Imgix_LinkBuilder
     /// </summary>
     public class Imgix
     {
-        private readonly string _source;
-        private readonly bool _useHttps;
-        private readonly string _secureUrlToken;
-
+        private readonly Dictionary<string, ImgixSource> _sources;
         /// <summary>
         /// The base constructor.
         /// Sets up the Imgix url builder base options.
@@ -19,20 +18,39 @@ namespace Imgix_LinkBuilder
         public Imgix(IImgixOptions options)
         {
             if (options == null) throw new ArgumentNullException(nameof(options));
-            _source = options.SourceName;
-            _useHttps = options.UseHttps;
-            _secureUrlToken = options.SecureUrlToken;
+            if (!options.Sources.Any()) throw new ArgumentException(nameof(options)+" You must define at least one source", nameof(options));
+            _sources = options.Sources.ToDictionary(source => source.Name, source => source);
         }
 
         /// <summary>
-        /// Creates a new imgix image from with the obtions in this Imgix
+        /// Creates a new imgix image from with the options in this Imgix
+        /// Caution: Will only ever grab the first source. If you have multiple sources it is receommended to use the overload with sourceName
         /// </summary>
         /// <param name="path">The path to the image</param>
         /// <returns></returns>
         public ImgixImage NewImage(string path)
         {
+            var sourceName = _sources.First().Value.Name;
+            return NewImage(sourceName, path);
+        }
+
+        /// <summary>
+        /// Creates a new imgix image from with the options in this Imgix
+        /// </summary>
+        /// <param name="sourceName">The name of the source to use</param>
+        /// <param name="path">The path to the image</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException"></exception>
+        public ImgixImage NewImage(string sourceName, string path)
+        {
+            if (String.IsNullOrWhiteSpace(path))
+                throw new ArgumentException("Argument is null or whitespace", nameof(path));
+            if (String.IsNullOrWhiteSpace(sourceName))
+                throw new ArgumentException("Argument is null or whitespace", nameof(sourceName));
             var escapedPath = path.StartsWith("http") ? Uri.EscapeDataString(path) : Uri.EscapeUriString(path).Replace("?", "%3F");
-            return new ImgixImage(new SecureUrl(_useHttps ? "https" : "http", _source + ".imgix.net", escapedPath, _secureUrlToken, ""));
+            ImgixSource source;
+            if (!_sources.TryGetValue(sourceName, out source)) { throw new KeyNotFoundException($"No source named {sourceName} found");}
+            return new ImgixImage(source.GetUrl(escapedPath));
         }
 
         /// <summary>
@@ -41,15 +59,18 @@ namespace Imgix_LinkBuilder
         /// <param name="options">The base options</param>
         /// <param name="path">The path to the image</param>
         /// <returns></returns>
-        public static ImgixImage NewImage(IImgixOptions options, string path) => new Imgix(options).NewImage(path);
+        public static ImgixImage NewImage(IImgixOptions options, string path)
+            => new Imgix(options).NewImage(path);
 
         /// <summary>
-        /// Creates a new imgix image from a supplied sourceName and path
+        /// Creates a new unsigned imgix image from a supplied sourceName and path
         /// </summary>
         /// <param name="sourceName">The source name</param>
         /// <param name="path">The path to the image</param>
+        /// <param name="host">The host of the source</param>
         /// <param name="useHttps">Is the source https. Default: true</param>
         /// <returns></returns>
-        public static ImgixImage NewImage(string sourceName, string path, bool useHttps = true) => NewImage(new ImgixOptions(sourceName, useHttps), path);
+        public static ImgixImage NewImage(string sourceName, string path, string host, bool useHttps = true)
+            => NewImage(new ImgixOptions(new ImgixSource(sourceName, host, useHttps)), path);
     }
 }
