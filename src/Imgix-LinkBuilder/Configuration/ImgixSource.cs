@@ -1,7 +1,7 @@
 ﻿using System;
 using Imgix_LinkBuilder.Sharding;
 
-namespace Imgix_LinkBuilder
+namespace Imgix_LinkBuilder.Configuration
 {
     /// <summary>
     /// An imgix source
@@ -127,6 +127,8 @@ namespace Imgix_LinkBuilder
         /// </summary>
         public string Name { get; }
 
+        private string Scheme => _isHttps ? "https" : "http";
+
         /// <summary>
         /// Gets a url for a given path. If sharding is enabled a shard is selected based on the chosen strategy
         /// </summary>
@@ -137,11 +139,8 @@ namespace Imgix_LinkBuilder
             if (String.IsNullOrWhiteSpace(path))
                 throw new ArgumentException("Path cannot be empty", nameof(path));
             var host = _hosts[_shardingStrategy.GetShardId(path, _hostsCount)];
-            return CreateUrl(host, path);
+            return new SecureUrl(Scheme, host, path, _secureUrlToken);
         }
-
-        private SecureUrl CreateUrl(string host, string path)
-            => new SecureUrl(_isHttps ? "https" : "http", host, path, _secureUrlToken, "");
 
         private static string[] SanitizeHosts(string[] hosts)
         {

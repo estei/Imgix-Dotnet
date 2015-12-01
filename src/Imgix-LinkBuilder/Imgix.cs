@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Imgix_LinkBuilder.Configuration;
 
 namespace Imgix_LinkBuilder
 {
@@ -15,6 +16,8 @@ namespace Imgix_LinkBuilder
         /// Sets up the Imgix url builder base options.
         /// </summary>
         /// <param name="options"></param>
+        /// <exception cref="ArgumentNullException"><paramref name="options"/> is null</exception>
+        /// <exception cref="ArgumentException"><paramref name="options"/> is empty</exception>
         public Imgix(IImgixOptions options)
         {
             if (options == null) throw new ArgumentNullException(nameof(options));
@@ -28,6 +31,7 @@ namespace Imgix_LinkBuilder
         /// </summary>
         /// <param name="path">The path to the image</param>
         /// <returns></returns>
+        /// <exception cref="ArgumentException"><paramref name="path"/> is null or whitespace. </exception>
         public ImgixImage NewImage(string path)
         {
             var sourceName = _sources.First().Value.Name;
@@ -40,7 +44,12 @@ namespace Imgix_LinkBuilder
         /// <param name="sourceName">The name of the source to use</param>
         /// <param name="path">The path to the image</param>
         /// <returns></returns>
-        /// <exception cref="ArgumentException"></exception>
+        /// <exception cref="ArgumentException">
+        ///     <para><paramref name="sourceName"/> is null or whitespace. </para>
+        ///     <para>- or - </para>
+        ///     <para><paramref name="path"/> is null or whitespace. </para>
+        /// </exception>
+        /// <exception cref="KeyNotFoundException">There is no source with name in <paramref name="sourceName"/></exception>
         public ImgixImage NewImage(string sourceName, string path)
         {
             if (String.IsNullOrWhiteSpace(path))
@@ -59,18 +68,17 @@ namespace Imgix_LinkBuilder
         /// <param name="options">The base options</param>
         /// <param name="path">The path to the image</param>
         /// <returns></returns>
-        public static ImgixImage NewImage(IImgixOptions options, string path)
+        public static ImgixImage CreateImage(IImgixOptions options, string path)
             => new Imgix(options).NewImage(path);
 
         /// <summary>
         /// Creates a new unsigned imgix image from a supplied sourceName and path
         /// </summary>
-        /// <param name="sourceName">The source name</param>
         /// <param name="path">The path to the image</param>
         /// <param name="host">The host of the source</param>
         /// <param name="useHttps">Is the source https. Default: true</param>
         /// <returns></returns>
-        public static ImgixImage NewImage(string sourceName, string path, string host, bool useHttps = true)
-            => NewImage(new ImgixOptions(new ImgixSource(sourceName, host, useHttps)), path);
+        public static ImgixImage CreateImage(string path, string host, bool useHttps = true)
+            => CreateImage(new ImgixOptions(new ImgixSource("Anonomous", host, useHttps)), path);
     }
 }

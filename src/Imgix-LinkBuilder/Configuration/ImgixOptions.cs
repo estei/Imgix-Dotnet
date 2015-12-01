@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Imgix_LinkBuilder
+namespace Imgix_LinkBuilder.Configuration
 {
     /// <summary>
     /// Basic options

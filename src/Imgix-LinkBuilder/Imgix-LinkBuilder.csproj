@@ -42,12 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\IImgixOptions.cs" />
+    <Compile Include="Configuration\ImgixOptions.cs" />
+    <Compile Include="Configuration\ImgixSource.cs" />
     <Compile Include="Extensions\ObjectToInvarianString.cs" />
-    <Compile Include="IImgixOptions.cs" />
     <Compile Include="Imgix.cs" />
     <Compile Include="ImgixImage.cs" />
-    <Compile Include="ImgixOptions.cs" />
-    <Compile Include="ImgixSource.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SecureUrl.cs" />
     <Compile Include="Sharding\HashShardingStrategy.cs" />

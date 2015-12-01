@@ -1,6 +1,7 @@
-﻿using NUnit.Framework;
+﻿using Imgix_LinkBuilder.Configuration;
+using NUnit.Framework;
 
-namespace Imgix_LinkBuilder.Tests
+namespace Imgix_LinkBuilder.Tests.Configuration
 {
     [TestFixture]
     public class ImgixSourceTests

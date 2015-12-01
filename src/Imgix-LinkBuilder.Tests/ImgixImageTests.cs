@@ -1,4 +1,5 @@
-﻿using Imgix_LinkBuilder.Tests.TestHelpers;
+﻿using Imgix_LinkBuilder.Configuration;
+using Imgix_LinkBuilder.Tests.TestHelpers;
 using NUnit.Framework;
 
 namespace Imgix_LinkBuilder.Tests
@@ -25,7 +26,7 @@ namespace Imgix_LinkBuilder.Tests
             [SetUp]
             public void Init()
             {
-                _image = Imgix.NewImage(new ImgixOptions(new ImgixSource(_sourceName, _host)), _imagePath);
+                _image = Imgix.CreateImage(new ImgixOptions(new ImgixSource(_sourceName, _host)), _imagePath);
             }
             [Test]
             public void Should_return_a_new_image_object()
@@ -44,7 +45,7 @@ namespace Imgix_LinkBuilder.Tests
             public void Should_add_parameter_to_new_image_object()
             {
                 //Arrange
-                var image = Imgix.NewImage(new ImgixOptions(new ImgixSource(_sourceName, _host)), _imagePath);
+                var image = Imgix.CreateImage(new ImgixOptions(new ImgixSource(_sourceName, _host)), _imagePath);
                 //Act
                 var result = image.AddParameter("test1", "test1");
                 //Assert
@@ -55,7 +56,7 @@ namespace Imgix_LinkBuilder.Tests
             public void Should_sign_the_image_if_token_is_set()
             {
                 //Arrange
-                var image = Imgix.NewImage(new ImgixOptions(new ImgixSource(_sourceName, "FOO123bar", _host, true)), "/users/1.png");
+                var image = Imgix.CreateImage(new ImgixOptions(new ImgixSource(_sourceName, "FOO123bar", _host, true)), "/users/1.png");
                 //Act
                 //Assert
                 ImgixImageAsserts.HasQueryParameter(image, "s", "6797c24146142d5b40bde3141fd3600c");
