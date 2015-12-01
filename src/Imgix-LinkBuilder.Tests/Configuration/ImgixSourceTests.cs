@@ -8,6 +8,7 @@ namespace Imgix_LinkBuilder.Tests.Configuration
     {
         public class Ctor : ImgixSourceTests
         {
+            [Test]
             public void Given_a_host_without_dots_sanitize_to_imgix_net_hostname()
             {
                 var subject = new ImgixSource("testhost", "testhost");

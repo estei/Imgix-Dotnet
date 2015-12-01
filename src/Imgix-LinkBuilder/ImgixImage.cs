@@ -1,5 +1,5 @@
 using System;
-using Imgix_LinkBuilder.Extensions;
+using Imgix_LinkBuilder.Extensions.ObjectInvariantConversion;
 
 namespace Imgix_LinkBuilder
 {
@@ -11,6 +11,11 @@ namespace Imgix_LinkBuilder
     {
         private readonly SecureUrl _url;
 
+        /// <summary>
+        /// Initializes a new ImgixImage object with a SecureUrl
+        /// </summary>
+        /// <param name="url">The url of the image</param>
+        /// <exception cref="ArgumentNullException"><paramref name="url"/> is empty</exception>
         internal ImgixImage(SecureUrl url)
         {
             if (url == null) throw new ArgumentNullException(nameof(url));

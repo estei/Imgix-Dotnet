@@ -45,7 +45,7 @@
     <Compile Include="Configuration\IImgixOptions.cs" />
     <Compile Include="Configuration\ImgixOptions.cs" />
     <Compile Include="Configuration\ImgixSource.cs" />
-    <Compile Include="Extensions\ObjectToInvarianString.cs" />
+    <Compile Include="Extensions\ObjectInvariantConversion\ObjectToInvarianString.cs" />
     <Compile Include="Imgix.cs" />
     <Compile Include="ImgixImage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
