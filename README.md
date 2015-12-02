@@ -12,7 +12,7 @@ A fluent imgix link builder library.<br/>
 To get started install the package with the following command
 
 ```
-PM> Install-Package Imgix-Dotnet -Pre
+PM> Install-Package Imgix-Dotnet
 ```
 
 Once you have installed the package to your project, you can get started creating image links.
