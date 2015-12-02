@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Imgix-Dotnet</id>
+    <version>0.0.0</version>
+    <authors>Rasmus Lauridsen</authors>
+    <licenseUrl>https://raw.githubusercontent.com/estei/Imgix-Dotnet/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/estei/Imgix-Dotnet</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A fluent link builder for imgix.com</description>
+    <releaseNotes>
+	</releaseNotes>
+    <copyright>Copyright 2015 Rasmus Lauridsen</copyright>
+    <tags>imgix fluent link url builder</tags>
+  </metadata>
+  <files>
+    <file src="..\Imgix-Dotnet\bin\Release\Imgix-Dotnet.*" target="lib\net40" />
+  </files>
+</package>

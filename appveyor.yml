@@ -1,4 +1,4 @@
-version: 1.0.{build}-ci
+version: 0.0.{build}-ci
 pull_requests:
   do_not_increment_build_number: true
 configuration: Release
@@ -13,24 +13,24 @@ install:
 skip_commits:
   message: /nobuild/
 before_build:
-- cmd: nuget restore src\Imgix-LinkBuilder.sln
+- cmd: nuget restore src\Imgix-Dotnet.sln
 build:
   verbosity: minimal
 after_build:
-- cmd: nuget pack src\nuget\Imgix-LinkBuilder.nuspec -o src\nuget -version %APPVEYOR_BUILD_VERSION%
+- cmd: nuget pack src\nuget\Imgix-Dotnet.nuspec -o src\nuget -version %APPVEYOR_BUILD_VERSION%
 test_script:
-- cmd: NUNIT3-CONSOLE %APPVEYOR_BUILD_FOLDER%\src\Imgix-LinkBuilder.Tests\bin\Release\Imgix-LinkBuilder.Tests.dll
+- cmd: NUNIT3-CONSOLE %APPVEYOR_BUILD_FOLDER%\src\Imgix-Dotnet.Tests\bin\Release\Imgix-Dotnet.Tests.dll
 artifacts:
 - path: TestResult.xml
-- path: src\nuget\Imgix-LinkBuilder.*.nupkg
-  name: imgixLinkBuilderPackage
+- path: src\nuget\Imgix-Dotnet.*.nupkg
+  name: imgixDotnetPackage
 deploy:
 - provider: NuGet
-  server: https://www.myget.org/F/imgix-linkbuilder-ci/api/v2/package
+  server: https://www.myget.org/F/imgix-dotnet-ci/api/v2/package
   api_key:
     secure: eOTUGAs/4UY79g3/H45TXRg2aUjTpLfQ6vkxjXe9n/tY0F1dkOPOYABoStu2JPz8
   skip_symbols: true
-  artifact: imgixLinkBuilderPackage
+  artifact: imgixDotnetPackage
   on:
     branch: Master
 on_finish:
