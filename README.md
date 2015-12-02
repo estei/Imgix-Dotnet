@@ -19,7 +19,7 @@ Once you have installed the package to your project, you can get started creatin
 
 ``` csharp
 /* https://assets.imgix.net/blog/woman-hat.jpg?w=200&h=200&mask=ellipse&fit=crop&crop=faces&fm=png */
-var result = Imgix.NewImage("assets", "blog/woman-hat.jpg")
+var result = Imgix.CreateImage("blog/woman-hat.jpg", "assets")
                   .Width(200)
                   .Height(200)
                   .EllipseMask()
@@ -39,7 +39,7 @@ Multiple different formats are quickly created in a very dry way.
 ``` csharp
 
 //Setting up the base shape and format of the image
-var baseImage = Imgix.NewImage("assets", "blog/woman-hat.jpg")
+var baseImage = Imgix.CreateImage("blog/woman-hat.jpg", "assets")
     .Fit("crop")
     .Crop("faces")
     .AddParameter("faceindex", "1");
@@ -52,4 +52,5 @@ var image200x400 = baseImage.Width(200).Height(400);
 [![Example](https://assets.imgix.net/blog/woman-hat.jpg?fit=crop&crop=faces&faceindex=1&w=200&h=400)](https://assets.imgix.net/blog/woman-hat.jpg?fit=crop&crop=faces&faceindex=1&w=200&h=400) 200x400px
 
 *Example image from the [imgix sandbox](https://sandbox.imgix.com/create)*
+
 ##Changes
