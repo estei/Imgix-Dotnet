@@ -42,13 +42,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Extensions\ObjectToInvarianString.cs" />
-    <Compile Include="IImgixOptions.cs" />
+    <Compile Include="Configuration\IImgixOptions.cs" />
+    <Compile Include="Configuration\ImgixOptions.cs" />
+    <Compile Include="Configuration\ImgixSource.cs" />
+    <Compile Include="Extensions\ObjectInvariantConversion\ObjectToInvarianString.cs" />
     <Compile Include="Imgix.cs" />
     <Compile Include="ImgixImage.cs" />
-    <Compile Include="ImgixOptions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SecureUrl.cs" />
+    <Compile Include="Sharding\HashShardingStrategy.cs" />
+    <Compile Include="Sharding\IShardingStrategy.cs" />
+    <Compile Include="Sharding\NoShardingStrategy.cs" />
+    <Compile Include="Sharding\RoundRobinShardingStrategy.cs" />
     <Compile Include="Transforms\AutomaticExtensions.cs" />
     <Compile Include="Transforms\BackgroundExtensions.cs" />
     <Compile Include="Transforms\BlendExtensions.cs" />

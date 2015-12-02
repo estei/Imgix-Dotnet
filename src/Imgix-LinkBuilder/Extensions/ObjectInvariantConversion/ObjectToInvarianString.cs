@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Globalization;
 
-namespace Imgix_LinkBuilder.Extensions
+namespace Imgix_LinkBuilder.Extensions.ObjectInvariantConversion
 {
     /// <summary>
-    ///
+    /// Object extensions
     /// </summary>
     public static class ObjectToInvarianString
     {

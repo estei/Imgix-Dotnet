@@ -6,15 +6,8 @@ using NUnit.Framework;
 namespace Imgix_LinkBuilder.Tests.Transforms
 {
     [TestFixture]
-    public class SizeExtensionsTests
+    public class SizeExtensionsTests : TransformsTests
     {
-        private ImgixImage _image;
-
-        [SetUp]
-        public void MainFixtureInit()
-        {
-            _image = Imgix.NewImage(new ImgixOptions("sourceName"), "some/path/to/some/image.jpg");
-        }
         public class Rect_with_dimensions_string : SizeExtensionsTests
         {
             [Test]
@@ -23,7 +16,7 @@ namespace Imgix_LinkBuilder.Tests.Transforms
                 //Arrange
                 const string dimensions = "0,0,200,200";
                 //Act
-                var result = _image.Rect(dimensions);
+                var result = Image.Rect(dimensions);
                 //Assert
                 ImgixImageAsserts.HasQueryParameter(result, "rect", dimensions);
             }
@@ -41,7 +34,7 @@ namespace Imgix_LinkBuilder.Tests.Transforms
                 const int height = 200;
                 var expectedDimensions = $"{x},{y},{width},{height}";
                 //Act
-                var result = _image.Rect(x,y,width,height);
+                var result = Image.Rect(x,y,width,height);
                 //Assert
                 ImgixImageAsserts.HasQueryParameter(result, "rect", expectedDimensions);
             }
@@ -55,7 +48,7 @@ namespace Imgix_LinkBuilder.Tests.Transforms
                 //Arrange
                 var height = 200;
                 //Act
-                var result = _image.Height(height);
+                var result = Image.Height(height);
                 //Assert
                 ImgixImageAsserts.HasQueryParameter(result, "h", height.ToString());
             }
@@ -68,7 +61,7 @@ namespace Imgix_LinkBuilder.Tests.Transforms
                 //Arrange
                 var height = 0.9;
                 //Act
-                var result = _image.Height(height);
+                var result = Image.Height(height);
                 //Assert
                 ImgixImageAsserts.HasQueryParameter(result, "h", height.ToString(CultureInfo.InvariantCulture));
             }
@@ -82,7 +75,7 @@ namespace Imgix_LinkBuilder.Tests.Transforms
                 //Arrange
                 const string height = "0.9";
                 //Act
-                var result = _image.Height(height);
+                var result = Image.Height(height);
                 //Assert
                 ImgixImageAsserts.HasQueryParameter(result, "h", height);
             }
@@ -96,7 +89,7 @@ namespace Imgix_LinkBuilder.Tests.Transforms
                 //Arrange
                 const int width = 200;
                 //Act
-                var result = _image.Width(width);
+                var result = Image.Width(width);
                 //Assert
                 ImgixImageAsserts.HasQueryParameter(result, "w", width.ToString());
             }
@@ -109,7 +102,7 @@ namespace Imgix_LinkBuilder.Tests.Transforms
                 //Arrange
                 const double width = 0.9;
                 //Act
-                var result = _image.Width(width);
+                var result = Image.Width(width);
                 //Assert
                 ImgixImageAsserts.HasQueryParameter(result, "w", width.ToString(CultureInfo.InvariantCulture));
             }
@@ -123,7 +116,7 @@ namespace Imgix_LinkBuilder.Tests.Transforms
                 //Arrange
                 const string width = "0.9";
                 //Act
-                var result = _image.Width(width);
+                var result = Image.Width(width);
                 //Assert
                 ImgixImageAsserts.HasQueryParameter(result, "w", width);
             }
@@ -137,7 +130,7 @@ namespace Imgix_LinkBuilder.Tests.Transforms
                 //Arrange
                 const string crop = "top";
                 //Act
-                var result = _image.Crop(crop);
+                var result = Image.Crop(crop);
                 //Assert
                 ImgixImageAsserts.HasQueryParameter(result, "crop", crop);
             }
@@ -151,7 +144,7 @@ namespace Imgix_LinkBuilder.Tests.Transforms
                 //Arrange
                 const string fit = "clip";
                 //Act
-                var result = _image.Fit(fit);
+                var result = Image.Fit(fit);
                 //Assert
                 ImgixImageAsserts.HasQueryParameter(result, "fit", fit);
             }

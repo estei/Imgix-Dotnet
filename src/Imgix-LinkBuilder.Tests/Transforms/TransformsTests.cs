@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using Imgix_LinkBuilder.Configuration;
+using NUnit.Framework;
 
 namespace Imgix_LinkBuilder.Tests.Transforms
 {
@@ -9,7 +10,7 @@ namespace Imgix_LinkBuilder.Tests.Transforms
         [SetUp]
         public void MainFixtureInit()
         {
-            Image = Imgix.NewImage(new ImgixOptions("sourceName"), "some/path/to/some/image.jpg");
+            Image = Imgix.CreateImage(new ImgixOptions(new ImgixSource("sourceName", "sourceName")), "some/path/to/some/image.jpg");
         }
     }
 }

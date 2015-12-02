@@ -22,6 +22,17 @@ namespace Imgix_LinkBuilder
         /// <param name="host">The hostname part of the url</param>
         /// <param name="path">The path of the url, this value must be percent escaped</param>
         /// <param name="secureUrlToken">The secure url token used for signing the url</param>
+        internal SecureUrl(string scheme, string host, string path, string secureUrlToken)
+            : this(scheme, host, path, secureUrlToken, "")
+        {}
+
+        /// <summary>
+        /// Initializes a new instance of the SecureUrl class
+        /// </summary>
+        /// <param name="scheme">http or https</param>
+        /// <param name="host">The hostname part of the url</param>
+        /// <param name="path">The path of the url, this value must be percent escaped</param>
+        /// <param name="secureUrlToken">The secure url token used for signing the url</param>
         /// <param name="parameters">The parameters of the url</param>
         internal SecureUrl(string scheme, string host, string path, string secureUrlToken, string parameters)
         {
