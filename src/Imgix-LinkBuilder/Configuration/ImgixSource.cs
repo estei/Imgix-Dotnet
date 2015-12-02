@@ -23,8 +23,7 @@ namespace Imgix_LinkBuilder.Configuration
         ///     If only single word with no dots it will be assumed that it is an imgix source identifier and add .imgix.net
         /// </param>
         public ImgixSource(string name, string host) : this(name, "", host)
-        {
-        }
+        {}
 
         /// <summary>
         /// Initializes a new https ImgixSource object with a single host.
@@ -36,8 +35,7 @@ namespace Imgix_LinkBuilder.Configuration
         /// </param>
         /// <param name="isHttps">Should urls use https</param>
         public ImgixSource(string name, string host, bool isHttps) : this(name, "", host, isHttps)
-        {
-        }
+        {}
 
         /// <summary>
         /// Initializes a new https ImgixSource object with a single host.
@@ -49,8 +47,7 @@ namespace Imgix_LinkBuilder.Configuration
         ///     If only single word with no dots it will be assumed that it is an imgix source identifier and add .imgix.net
         /// </param>
         public ImgixSource(string name, string secureUrlToken, string host) : this(name, secureUrlToken, host, true)
-        {
-        }
+        {}
 
         /// <summary>
         /// Initializes a new https ImgixSource object with a single host.
@@ -63,8 +60,28 @@ namespace Imgix_LinkBuilder.Configuration
         /// </param>
         /// <param name="isHttps">Should urls use https</param>
         public ImgixSource(string name, string secureUrlToken, string host, bool isHttps) : this(name, secureUrlToken, new[] { host }, isHttps, new NoShardingStrategy())
-        {
-        }
+        {}
+
+        /// <summary>
+        /// Initializes a new https ImgixSource object with multiple hosts.
+        /// </summary>
+        /// <param name="name">The name of the source</param>
+        /// <param name="secureUrlToken">The secure url token for the source used to sign urls</param>
+        /// <param name="hosts">
+        ///     An array of hosts.
+        ///     If a host is only single word with no dots it will be assumed that it is an imgix source identifier and add .imgix.net
+        /// </param>
+        /// <param name="shardingStrategy">
+        ///     What strategy should be used for sharding hosts.
+        ///     Note: Sharding can lead to problems
+        ///     http://perf.fail/post/96104709544/zealous-sharding-hurts-etsy-performance
+        ///     and
+        ///     https://docs.google.com/presentation/d/1r7QXGYOLCh4fcUq0jDdDwKJWNqWK1o4xMtYpKZCJYjM/present?slide=id.g518e3c87f_0_300
+        ///     Recommended to only use two shards.
+        /// </param>
+        public ImgixSource(string name, string secureUrlToken, string[] hosts, IShardingStrategy shardingStrategy)
+            : this(name, secureUrlToken, hosts, true, shardingStrategy)
+        {}
 
         /// <summary>
         /// Initializes a new https ImgixSource object with multiple hosts.
@@ -85,8 +102,7 @@ namespace Imgix_LinkBuilder.Configuration
         /// </param>
         public ImgixSource(string name, string[] hosts, bool isHttps, IShardingStrategy shardingStrategy)
             : this(name, "", hosts, isHttps, shardingStrategy)
-        {
-        }
+        {}
 
         /// <summary>
         /// Initializes a new https ImgixSource object with multiple hosts.
