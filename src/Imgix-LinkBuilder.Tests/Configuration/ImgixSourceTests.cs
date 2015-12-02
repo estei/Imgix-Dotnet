@@ -1,4 +1,6 @@
 ﻿using Imgix_LinkBuilder.Configuration;
+using Imgix_LinkBuilder.Sharding;
+using Moq;
 using NUnit.Framework;
 
 namespace Imgix_LinkBuilder.Tests.Configuration
@@ -25,6 +27,19 @@ namespace Imgix_LinkBuilder.Tests.Configuration
                 var subject = new ImgixSource("testhost", "testhost.imgix.net");
                 var result = subject.GetUrl("hey/hey.jpg");
                 Assert.True(result.ToString().Contains("hey/hey.jpg"));
+            }
+
+            [Test]
+            public void Given_a_path_it_should_request_the_shardId_from_the_shardingStrategy()
+            {
+                //Arrange
+                var mockShardingStrategy = new Mock<IShardingStrategy>();
+                mockShardingStrategy.Setup(s => s.GetShardId(It.IsAny<string>(), 1)).Returns(0);
+                var subject = new ImgixSource("testhost", "" , new []{ "testhost.imgix.net" }, true, mockShardingStrategy.Object);
+                //Act
+                subject.GetUrl("testhost.imgix.net");
+                //Assert
+                mockShardingStrategy.VerifyAll();
             }
         }
     }
