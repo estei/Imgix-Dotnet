@@ -16,7 +16,10 @@ before_build:
 build:
   verbosity: minimal
 after_build:
-- cmd: nuget pack src\nuget\Imgix-Dotnet.nuspec -o src\nuget -version %APPVEYOR_BUILD_VERSION%
+- cmd: >-
+    nuget pack src\nuget\Imgix-Dotnet.nuspec -o src\nuget -version %APPVEYOR_BUILD_VERSION%
+
+    nuget pack src\nuget\Imgix-Dotnet.Configuration.AppConfig.nuspec -o src\nuget -version %APPVEYOR_BUILD_VERSION%
 test_script:
 - cmd: NUNIT3-CONSOLE %APPVEYOR_BUILD_FOLDER%\src\Imgix-Dotnet.Tests\bin\Release\Imgix-Dotnet.Tests.dll
 artifacts:
