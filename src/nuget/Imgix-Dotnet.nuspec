@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<package >
+<package>
   <metadata>
     <id>Imgix-Dotnet</id>
     <version>0.0.0</version>
@@ -9,7 +9,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>A fluent link builder for imgix.com</description>
     <releaseNotes>
-	</releaseNotes>
+    </releaseNotes>
     <copyright>Copyright 2015 Rasmus Lauridsen</copyright>
     <tags>imgix fluent link url builder</tags>
   </metadata>

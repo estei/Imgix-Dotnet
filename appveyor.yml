@@ -13,7 +13,10 @@ install:
 skip_commits:
   message: /nobuild/
 before_build:
-- cmd: nuget restore src\Imgix-Dotnet.sln
+- cmd: >-
+    nuget restore src\Imgix-Dotnet.sln
+    
+    src\nuget\UpdateDependencyVersions.bat
 build:
   verbosity: minimal
 after_build:
@@ -23,14 +26,14 @@ test_script:
 artifacts:
 - path: TestResult.xml
 - path: src\nuget\Imgix-Dotnet.*.nupkg
-  name: imgixDotnetPackage
+  name: imgixDotnetPackages
 deploy:
 - provider: NuGet
   server: https://www.myget.org/F/imgix-dotnet-ci/api/v2/package
   api_key:
     secure: eOTUGAs/4UY79g3/H45TXRg2aUjTpLfQ6vkxjXe9n/tY0F1dkOPOYABoStu2JPz8
   skip_symbols: true
-  artifact: imgixDotnetPackage
+  artifact: imgixDotnetPackages
   on:
     branch: Master
 on_finish:
