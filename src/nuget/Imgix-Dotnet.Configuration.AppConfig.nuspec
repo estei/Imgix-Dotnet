@@ -19,6 +19,6 @@
     <tags>imgix fluent link url builder configuration app web config</tags>
   </metadata>
   <files>
-    <file src="..\Imgix-Dotnet\bin\Release\Imgix-Dotnet.Configuration.AppConfig.*" target="lib\net40" />
+    <file src="..\Imgix-Dotnet.Configuration.AppConfig\bin\Release\Imgix-Dotnet.Configuration.AppConfig.*" target="lib\net40" />
   </files>
 </package>

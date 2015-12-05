@@ -3,7 +3,8 @@ Param(
 )
 
 #Globals
-$nuspec_dir = resolve-path .
+$nuspec_dir = $PSScriptRoot
+write-host $nuspec_dir
 $package_base_name = "Imgix-Dotnet"
 
 #Updates the version number of the nuspecfiles
@@ -26,4 +27,4 @@ function UpdateVersionNumber($nuspecFile, $versionNumber)
 }
 
 #Script
-dir "$nuspec_dir\" *.nuspec | ForEach-Object {UpdateVersionNumber $_ $version}
+dir "$nuspec_dir\" *.nuspec | ForEach-Object {UpdateVersionNumber $nuspec_dir\$_ $version}
