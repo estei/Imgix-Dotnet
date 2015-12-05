@@ -1,7 +1,10 @@
 Param(
   [string]$version = 0.0.0
 )
+
+#Globals
 $nuspec_dir = resolve-path .
+$package_base_name = "Imgix-Dotnet"
 
 #Updates the version number of the nuspecfiles
 function UpdateVersionNumber($nuspecFile, $versionNumber)
@@ -21,4 +24,6 @@ function UpdateVersionNumber($nuspecFile, $versionNumber)
     }
     $myXml.Save($nuspecFile)
 }
+
+#Script
 dir "$nuspec_dir\" *.nuspec | ForEach-Object {UpdateVersionNumber $_ $version}

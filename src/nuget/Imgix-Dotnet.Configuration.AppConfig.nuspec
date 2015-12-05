@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<package >
+<package>
   <metadata>
     <id>Imgix-Dotnet.Configuration.AppConfig</id>
     <version>0.0.0</version>
@@ -9,9 +9,11 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>An app config based configuration for Imgix-Dotnet a fluent Imgix.com link builder.</description>
     <releaseNotes>
-	  </releaseNotes>
+    </releaseNotes>
     <dependencies>
-      <dependency id="Imgix-Dotnet" version="0.0.0" />
+      <group>
+        <dependency id="Imgix-Dotnet" version="0.0.0" />
+      </group>
     </dependencies>
     <copyright>Copyright 2015 Rasmus Lauridsen</copyright>
     <tags>imgix fluent link url builder configuration app web config</tags>
