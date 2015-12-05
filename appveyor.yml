@@ -5,12 +5,6 @@ configuration: Release
 shallow_clone: true
 install:
 - cmd: >-
-    appveyor DownloadFile https://github.com/nunit/nunit/releases/download/3.0.0/NUnit-3.0.0.zip
-
-    echo %PATH%
-
-    7z x -oC:\Tools\NUnit3 nunit-3.0.0.zip
-
     set PATH=C:\Tools\NUnit3\bin;%PATH%
 skip_commits:
   message: /nobuild/
