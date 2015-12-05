@@ -54,6 +54,7 @@
     <Compile Include="Sharding\IShardingStrategy.cs" />
     <Compile Include="Sharding\NoShardingStrategy.cs" />
     <Compile Include="Sharding\RoundRobinShardingStrategy.cs" />
+    <Compile Include="Sharding\ShardingFactory.cs" />
     <Compile Include="Transforms\AutomaticExtensions.cs" />
     <Compile Include="Transforms\BackgroundExtensions.cs" />
     <Compile Include="Transforms\BlendExtensions.cs" />

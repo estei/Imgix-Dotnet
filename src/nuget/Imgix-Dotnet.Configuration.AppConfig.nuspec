@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Imgix-Dotnet.Configuration.AppConfig</id>
+    <version>0.0.0</version>
+    <authors>Rasmus Lauridsen</authors>
+    <licenseUrl>https://raw.githubusercontent.com/estei/Imgix-Dotnet/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/estei/Imgix-Dotnet</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>An app config based configuration for Imgix-Dotnet a fluent Imgix.com link builder.</description>
+    <releaseNotes>
+	  </releaseNotes>
+    <dependencies>
+      <dependency id="Imgix-Dotnet" version="0.0.0" />
+    </dependencies>
+    <copyright>Copyright 2015 Rasmus Lauridsen</copyright>
+    <tags>imgix fluent link url builder configuration app web config</tags>
+  </metadata>
+  <files>
+    <file src="..\Imgix-Dotnet\bin\Release\Imgix-Dotnet.Configuration.AppConfig.*" target="lib\net40" />
+  </files>
+</package>
