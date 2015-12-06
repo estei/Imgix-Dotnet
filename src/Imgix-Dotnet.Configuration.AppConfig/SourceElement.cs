@@ -24,30 +24,21 @@ namespace Imgix_Dotnet.Configuration.AppConfig
         /// </summary>
         [ConfigurationProperty("name", IsRequired = true)]
         public string Name
-        {
-            get { return (string)this["name"]; }
-            set { this["name"] = value; }
-        }
+            => (string)this["name"];
 
         /// <summary>
         /// The secure url token to sign urls with
         /// </summary>
         [ConfigurationProperty("secureUrlToken", IsRequired = false)]
         public string SecureUrlToken
-        {
-            get { return (string)this["secureUrlToken"]; }
-            set { this["secureUrlToken"] = value; }
-        }
+            => (string)this["secureUrlToken"];
 
         /// <summary>
         /// Is the source https
         /// </summary>
         [ConfigurationProperty("isHttps", IsRequired = true)]
         public bool IsHttps
-        {
-            get { return (bool)this["isHttps"]; }
-            set { this["isHttps"] = value; }
-        }
+            => (bool)this["isHttps"];
 
         /// <summary>
         /// The sharding strategy for the source

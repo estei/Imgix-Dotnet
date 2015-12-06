@@ -12,9 +12,6 @@ namespace Imgix_Dotnet.Configuration.AppConfig
         /// </summary>
         [ConfigurationProperty("hostname", IsRequired = true)]
         public string HostName
-        {
-            get { return (string)this["hostname"]; }
-            set { this["hostname"] = value; }
-        }
+            => (string)this["hostname"];
     }
 }
