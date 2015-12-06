@@ -44,6 +44,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -52,6 +53,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\AppConfig\HostElementTests.cs" />
+    <Compile Include="Configuration\AppConfig\SourceElementTests.cs" />
     <Compile Include="Configuration\ImgixSourceTests.cs" />
     <Compile Include="ImgixImageTests.cs" />
     <Compile Include="ImgixTests.cs" />
@@ -60,6 +63,7 @@
     <Compile Include="Sharding\HashShardingStrategyTests.cs" />
     <Compile Include="Sharding\NoShardingStrategyTests.cs" />
     <Compile Include="Sharding\RoundRobinShardingStrategyTest.cs" />
+    <Compile Include="Sharding\ShardingFactoryTests.cs" />
     <Compile Include="TestHelpers\ImgixImageAsserts.cs" />
     <Compile Include="Transforms\AutomaticExtensionsTests.cs" />
     <Compile Include="Transforms\BackgroundExtensionsTests.cs" />
@@ -81,12 +85,17 @@
     <Compile Include="Transforms\WatermarkExtensionsTests.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Imgix-Dotnet.Configuration.AppConfig\Imgix-Dotnet.Configuration.AppConfig.csproj">
+      <Project>{c855d036-fee0-4055-8bd3-b9886f283001}</Project>
+      <Name>Imgix-Dotnet.Configuration.AppConfig</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Imgix-Dotnet\Imgix-Dotnet.csproj">
       <Project>{453d0c31-ebe2-4cf8-8e84-fc281eb22d6f}</Project>
       <Name>Imgix-Dotnet</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />

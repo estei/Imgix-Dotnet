@@ -1,5 +1,4 @@
 ﻿using Imgix_Dotnet.Configuration;
-using Imgix_Dotnet;
 using NUnit.Framework;
 
 namespace Imgix_Dotnet.Tests.Transforms

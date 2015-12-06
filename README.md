@@ -18,8 +18,7 @@ A fluent imgix link builder library.
 
 ## Getting started
 
-Make sure you have an account set up at [imgix](https://www.imgix.com/)
-
+Make sure you have an account set up at [imgix](https://www.imgix.com/)  
 Next install the package with the following command
 
 ``` powershell

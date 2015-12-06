@@ -1,4 +1,5 @@
-﻿using Imgix_Dotnet.Configuration;
+﻿using System;
+using Imgix_Dotnet.Configuration;
 using Imgix_Dotnet.Sharding;
 using Moq;
 using NUnit.Framework;
@@ -16,6 +17,42 @@ namespace Imgix_Dotnet.Tests.Configuration
                 var subject = new ImgixSource("testhost", "testhost");
                 var result = subject.GetUrl("hey/hey.jpg");
                 Assert.True(result.ToString().Contains("testhost.imgix.net"));
+            }
+
+            [Test]
+            public void Given_an_empty_name_it_should_throw_ArgumentException()
+            {
+                Assert.Throws<ArgumentException>(
+                    // ReSharper disable ObjectCreationAsStatement
+                    () => new ImgixSource("", "Token", new[] {"host"}, new NoShardingStrategy()));
+                    // ReSharper restore ObjectCreationAsStatement
+            }
+
+            [Test]
+            public void Given_null_for_secureUrlToken_it_should_throw_ArgumentNullException()
+            {
+                Assert.Throws<ArgumentNullException>(
+                    // ReSharper disable ObjectCreationAsStatement
+                    () => new ImgixSource("Name", null, new[] { "host" }, false, new NoShardingStrategy()));
+                // ReSharper restore ObjectCreationAsStatement
+            }
+
+            [Test]
+            public void Given_an_empty_hosts_it_should_throw_ArgumentException()
+            {
+                Assert.Throws<ArgumentException>(
+                    // ReSharper disable ObjectCreationAsStatement
+                    () => new ImgixSource("name", new string[] {}, false, new NoShardingStrategy()));
+                // ReSharper restore ObjectCreationAsStatement
+            }
+
+            [Test]
+            public void Given_null_for_shardingStrategy_it_should_throw_ArgumentNullException()
+            {
+                Assert.Throws<ArgumentNullException>(
+                    // ReSharper disable ObjectCreationAsStatement
+                    () => new ImgixSource("Name", "", new[] { "host" }, false, null));
+                // ReSharper restore ObjectCreationAsStatement
             }
         }
 
@@ -40,6 +77,13 @@ namespace Imgix_Dotnet.Tests.Configuration
                 subject.GetUrl("testhost.imgix.net");
                 //Assert
                 mockShardingStrategy.VerifyAll();
+            }
+
+            [Test]
+            public void Given_an_empty_path_it_should_throw_ArgumentException()
+            {
+                var subject = new ImgixSource("testhost", "testhost");
+                Assert.Throws<ArgumentException>(() => subject.GetUrl(""));
             }
         }
     }
