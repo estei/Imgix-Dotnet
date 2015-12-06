@@ -59,7 +59,8 @@ namespace Imgix_Dotnet.Configuration
         ///     If only single word with no dots it will be assumed that it is an imgix source identifier and add .imgix.net
         /// </param>
         /// <param name="isHttps">Should urls use https</param>
-        public ImgixSource(string name, string secureUrlToken, string host, bool isHttps) : this(name, secureUrlToken, new[] { host }, isHttps, new NoShardingStrategy())
+        public ImgixSource(string name, string secureUrlToken, string host, bool isHttps)
+            : this(name, secureUrlToken, new[] { host }, isHttps, new NoShardingStrategy())
         {}
 
         /// <summary>

@@ -30,7 +30,7 @@ namespace Imgix_Dotnet.Sharding
                 case "roundrobin":
                     return new RoundRobinShardingStrategy();
                 default:
-                    throw new Exception($"No default sharding strategy named {name}");
+                    throw new ArgumentException($"No default sharding strategy named {name}");
             }
         }
     }

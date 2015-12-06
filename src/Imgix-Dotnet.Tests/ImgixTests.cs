@@ -20,6 +20,25 @@ namespace Imgix_Dotnet.Tests
             _host = "hey.com";
         }
 
+
+        public class Ctor : ImgixTests
+        {
+            [Test]
+            public void Given_null_is_passed_for_options_it_should_throw_an_ArgumentNullException()
+            {
+                // ReSharper disable ObjectCreationAsStatement
+                Assert.Throws<ArgumentNullException>(() => new Imgix(null));
+                // ReSharper restore ObjectCreationAsStatement
+            }
+
+            [Test]
+            public void Given_options_with_no_sources_should_throw_ArgumentException()
+            {
+                // ReSharper disable ObjectCreationAsStatement
+                Assert.Throws<ArgumentException>(() => new Imgix(new ImgixOptions(new List<ImgixSource>())));
+                // ReSharper restore ObjectCreationAsStatement
+            }
+        }
         private class NewImage : ImgixTests
         {
             private Imgix _subject;

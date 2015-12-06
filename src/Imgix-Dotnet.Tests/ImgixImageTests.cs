@@ -1,4 +1,5 @@
-﻿using Imgix_Dotnet.Configuration;
+﻿using System;
+using Imgix_Dotnet.Configuration;
 using Imgix_Dotnet.Tests.TestHelpers;
 using NUnit.Framework;
 
