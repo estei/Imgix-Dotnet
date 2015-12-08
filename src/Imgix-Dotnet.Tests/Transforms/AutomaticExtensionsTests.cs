@@ -32,6 +32,12 @@ namespace Imgix_Dotnet.Tests.Transforms
             {
                 ImgixImageAsserts.HasQueryParameter(Image.Auto(AutoTransform.Format), "auto", "format");
             }
+
+            [Test]
+            public void Given_multiple_AutoTransform_it_will_add_them_all_seperated_by_commas()
+            {
+                ImgixImageAsserts.HasQueryParameter(Image.Auto(AutoTransform.Format, AutoTransform.Redeye), "auto", "format,redeye");
+            }
         }
     }
 }

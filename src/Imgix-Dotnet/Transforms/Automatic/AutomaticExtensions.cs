@@ -1,4 +1,6 @@
-﻿namespace Imgix_Dotnet.Transforms.Automatic
+﻿using System.Linq;
+
+namespace Imgix_Dotnet.Transforms.Automatic
 {
     /// <summary>
     /// ImgixImage extension methods that set auto related parameters on the Url.
@@ -21,11 +23,11 @@
         /// Will add an auto enhancement parameter to the url
         /// </summary>
         /// <param name="image">The image to transform</param>
-        /// <param name="value">
-        ///     An Autotransform representing the transform
+        /// <param name="values">
+        ///     One or more Autotransforms
         /// </param>
         /// <returns></returns>
-        public static ImgixImage Auto(this ImgixImage image, AutoTransform value)
-            => image.AddParameter("auto", value.ToString().ToLowerInvariant());
+        public static ImgixImage Auto(this ImgixImage image, params AutoTransform[] values)
+            => image.AddParameter("auto", string.Join(",", values.Select(at => at.ToString().ToLower()).ToArray()));
     }
 }
