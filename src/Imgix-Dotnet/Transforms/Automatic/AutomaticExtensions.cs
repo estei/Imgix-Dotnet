@@ -16,5 +16,16 @@
         /// <returns></returns>
         public static ImgixImage Auto(this ImgixImage image, string value)
             => image.AddParameter("auto", value);
+
+        /// <summary>
+        /// Will add an auto enhancement parameter to the url
+        /// </summary>
+        /// <param name="image">The image to transform</param>
+        /// <param name="value">
+        ///     An Autotransform representing the transform
+        /// </param>
+        /// <returns></returns>
+        public static ImgixImage Auto(this ImgixImage image, AutoTransform value)
+            => image.AddParameter("auto", value.ToString().ToLowerInvariant());
     }
 }

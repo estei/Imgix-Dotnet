@@ -14,6 +14,24 @@ namespace Imgix_Dotnet.Tests.Transforms
             {
                 ImgixImageAsserts.HasQueryParameter(Image.Auto("enhance"), "auto", "enhance");
             }
+
+            [Test]
+            public void Given_an_AutoTransform_Enhance_an_auto_parameter_enhance_as_value()
+            {
+                ImgixImageAsserts.HasQueryParameter(Image.Auto(AutoTransform.Enhance), "auto", "enhance");
+            }
+
+            [Test]
+            public void Given_an_AutoTransform_Redeye_an_auto_parameter_redeye_as_value()
+            {
+                ImgixImageAsserts.HasQueryParameter(Image.Auto(AutoTransform.Redeye), "auto", "redeye");
+            }
+
+            [Test]
+            public void Given_an_AutoTransform_Format_an_auto_parameter_format_as_value()
+            {
+                ImgixImageAsserts.HasQueryParameter(Image.Auto(AutoTransform.Format), "auto", "format");
+            }
         }
     }
 }

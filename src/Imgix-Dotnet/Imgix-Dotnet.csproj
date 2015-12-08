@@ -55,7 +55,8 @@
     <Compile Include="Sharding\NoShardingStrategy.cs" />
     <Compile Include="Sharding\RoundRobinShardingStrategy.cs" />
     <Compile Include="Sharding\ShardingFactory.cs" />
-    <Compile Include="Transforms\AutomaticExtensions.cs" />
+    <Compile Include="Transforms\Automatic\AutomaticExtensions.cs" />
+    <Compile Include="Transforms\Automatic\AutoTransform.cs" />
     <Compile Include="Transforms\BackgroundExtensions.cs" />
     <Compile Include="Transforms\BlendExtensions.cs" />
     <Compile Include="Transforms\BorderExtensions.cs" />
@@ -73,6 +74,7 @@
     <Compile Include="Transforms\TrimExtensions.cs" />
     <Compile Include="Transforms\WatermarkExtensions.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
