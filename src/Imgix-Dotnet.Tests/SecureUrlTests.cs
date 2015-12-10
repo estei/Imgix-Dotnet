@@ -1,6 +1,6 @@
 ﻿using Imgix_Dotnet.Configuration;
+using Imgix_Dotnet.Operations.Size;
 using Imgix_Dotnet.Tests.TestHelpers;
-using Imgix_Dotnet.Transforms.Size;
 using NUnit.Framework;
 
 namespace Imgix_Dotnet.Tests
