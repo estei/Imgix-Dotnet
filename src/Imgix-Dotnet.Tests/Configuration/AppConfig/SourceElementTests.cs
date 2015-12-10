@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using Imgix_Dotnet.Configuration.AppConfig;
-using Imgix_Dotnet.Sharding;
 using NUnit.Framework;
 
 namespace Imgix_Dotnet.Tests.Configuration.AppConfig
