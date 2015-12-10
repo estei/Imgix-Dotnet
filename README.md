@@ -18,7 +18,7 @@ A fluent imgix link builder library.
 
 ## Getting started
 
-Make sure you have an account set up at [imgix](https://www.imgix.com/)  
+Make sure you have an account set up at [imgix](https://www.imgix.com/)
 Next install the package with the following command
 
 ``` powershell
@@ -35,7 +35,7 @@ var result = Imgix.CreateImage("blog/woman-hat.jpg", "assets")
                   .EllipseMask()
                   .Fit("crop")
                   .Crop("faces")
-                  .AddParameter("fm", "png") //If there is no extension method for a transform just add a parameter.
+                  .AddParameter("fm", "png") //If there is no method for an operation just add a manual parameter.
 ```
 
 [![Example](https://assets.imgix.net/blog/woman-hat.jpg?w=200&h=200&mask=ellipse&fit=crop&crop=faces&fm=png)](https://assets.imgix.net/blog/woman-hat.jpg?w=200&h=200&mask=ellipse&fit=crop&crop=faces&fm=png)
