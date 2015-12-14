@@ -48,7 +48,10 @@
     <Compile Include="Extensions\ObjectInvariantConversion\ObjectToInvarianString.cs" />
     <Compile Include="Imgix.cs" />
     <Compile Include="ImgixImage.cs" />
+    <Compile Include="Macros\FocalExtensions.cs" />
+    <Compile Include="Point.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rectangle.cs" />
     <Compile Include="SecureUrl.cs" />
     <Compile Include="Sharding\HashShardingStrategy.cs" />
     <Compile Include="Sharding\IShardingStrategy.cs" />
