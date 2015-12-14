@@ -55,10 +55,10 @@ namespace Imgix_Dotnet.Tests
             [Test]
             public void Given_target_is_larger_it_should_return_the_smallest_ratio()
             {
-                var target = new Rectangle(2, 3);
+                var target = new Rectangle(4, 3);
                 var subject = new Rectangle(2, 2);
                 var result = subject.Ratio(target);
-                Assert.AreEqual(result,  Convert.ToDouble(target.Height)/subject.Height);
+                Assert.AreEqual(Convert.ToDouble(target.Height)/subject.Height, result);
             }
         }
 
