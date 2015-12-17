@@ -73,10 +73,13 @@ namespace Imgix_Dotnet.Macros
         /// <param name="height">The height of the area to crop</param>
         /// <param name="sourceWidth">The original image width</param>
         /// <param name="sourceHeight">The original image height</param>
+        /// <exception cref="ArgumentOutOfRangeException">If either x or y is outside the 0.0 to 1.0 range</exception>
         /// <returns></returns>
         public static ImgixImage FocalCrop(this ImgixImage image, double x, double y, int width,
             int height, int sourceWidth, int sourceHeight)
         {
+            if (x < 0.0 && x > 1.0) throw new ArgumentOutOfRangeException(nameof(x));
+            if (y < 0.0 && y > 1.0) throw new ArgumentOutOfRangeException(nameof(y));
             var focalPositionX = Convert.ToInt32(sourceWidth * x);
             var focalPositionY = Convert.ToInt32(sourceHeight * y);
             return image.FocalCrop(focalPositionX, focalPositionY, width, height, sourceWidth, sourceHeight);
