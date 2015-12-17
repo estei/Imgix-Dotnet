@@ -1,4 +1,5 @@
-﻿using Imgix_Dotnet.Operations.Size;
+﻿using System;
+using Imgix_Dotnet.Operations.Size;
 
 namespace Imgix_Dotnet.Macros
 {
@@ -52,6 +53,33 @@ namespace Imgix_Dotnet.Macros
             return image.Rect(cropTopLeftCorner.X, cropTopLeftCorner.Y, cropRectangle.Width, cropRectangle.Height);
         }
 
-
+        /// <summary>
+        /// Crops the image around a focal point.
+        /// Will try and center on the focal point if possible, but if the crop falls outside the area of the image it will adjust.
+        /// Keeps the aspect of the crop.
+        /// </summary>
+        /// <param name="image">The image to run the macro on</param>
+        /// <param name="x">
+        ///     The horizontal position of the focal point.
+        ///     Interpreted as a percentage of the image width from the left.
+        ///     Values 0.0 to 1.0
+        /// </param>
+        /// <param name="y">
+        ///     The y position of the focal point.
+        ///     Interpreted as a percentage of the image height from the top side.
+        ///     Values 0.0 to 1.0
+        /// </param>
+        /// <param name="width">The width of the area to crop</param>
+        /// <param name="height">The height of the area to crop</param>
+        /// <param name="sourceWidth">The original image width</param>
+        /// <param name="sourceHeight">The original image height</param>
+        /// <returns></returns>
+        public static ImgixImage FocalCrop(this ImgixImage image, double x, double y, int width,
+            int height, int sourceWidth, int sourceHeight)
+        {
+            var focalPositionX = Convert.ToInt32(sourceWidth * x);
+            var focalPositionY = Convert.ToInt32(sourceHeight * y);
+            return image.FocalCrop(focalPositionX, focalPositionY, width, height, sourceWidth, sourceHeight);
+        }
     }
 }
