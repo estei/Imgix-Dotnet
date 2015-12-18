@@ -58,6 +58,7 @@
     <Compile Include="Configuration\ImgixSourceTests.cs" />
     <Compile Include="ImgixImageTests.cs" />
     <Compile Include="ImgixTests.cs" />
+    <Compile Include="Macros\FocalExtensionsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RectangleTests.cs" />
     <Compile Include="SecureUrlTests.cs" />
