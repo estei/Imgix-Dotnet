@@ -44,12 +44,16 @@ namespace Imgix_Dotnet
         /// </summary>
         /// <param name="target">The target rectangle</param>
         /// <returns>A new rectangle that fits within the target rectangle</returns>
-        public Rectangle ResizeToFitWithin(Rectangle target)
+        public Rectangle EnsureFit(Rectangle target)
+            => target.CanHold(this) ? new Rectangle(Width, Height) : Match(target);
+
+        /// <summary>
+        /// Resizes the rectangle to match the target rectangle on the shortest side
+        /// </summary>
+        /// <param name="target">The target rectangle</param>
+        /// <returns>A new rectangle that matches the shortest side of the target rectangle.</returns>
+        public Rectangle Match(Rectangle target)
         {
-            if (target.CanHold(this))
-            {
-                return new Rectangle(Width, Height);
-            }
             var ratio = Ratio(target);
             return Resize(ratio);
         }

@@ -81,14 +81,14 @@ namespace Imgix_Dotnet.Tests
             }
         }
 
-        public class ResizeToFitWithin : RectangleTests
+        public class EnsureFit : RectangleTests
         {
             [Test]
             public void Given_a_larger_target_it_will_return_an_equal_rectangle()
             {
                 var target = new Rectangle(4, 4);
                 var subject = new Rectangle(3, 3);
-                var result = subject.ResizeToFitWithin(target);
+                var result = subject.EnsureFit(target);
                 Assert.True(result.Height == 3 && result.Width == 3);
             }
 
@@ -97,7 +97,7 @@ namespace Imgix_Dotnet.Tests
             {
                 var target = new Rectangle(2, 4);
                 var subject = new Rectangle(3, 3);
-                var result = subject.ResizeToFitWithin(target);
+                var result = subject.EnsureFit(target);
                 Assert.True(target.CanHold(result));
             }
 
@@ -106,7 +106,7 @@ namespace Imgix_Dotnet.Tests
             {
                 var target = new Rectangle(4, 2);
                 var subject = new Rectangle(3, 3);
-                var result = subject.ResizeToFitWithin(target);
+                var result = subject.EnsureFit(target);
                 Assert.True(target.CanHold(result));
             }
 
@@ -115,8 +115,65 @@ namespace Imgix_Dotnet.Tests
             {
                 var target = new Rectangle(40, 20);
                 var subject = new Rectangle(30, 30);
-                var result = subject.ResizeToFitWithin(target);
+                var result = subject.EnsureFit(target);
                 Assert.True(result.Height/result.Width == 1);
+            }
+        }
+
+        public class Match : RectangleTests
+        {
+            [Test]
+            public void Given_a_larger_target_it_will_return_a_rectangle_of_same_aspect_ratio_maxed_inside_target()
+            {
+                var target = new Rectangle(4, 4);
+                var subject = new Rectangle(3, 3);
+                var result = subject.Match(target);
+                Assert.True(result.Height == 4 && result.Width == 4);
+            }
+
+            [Test]
+            public void Given_a_narrower_target_it_will_return_a_rectangle_that_fits_within_target()
+            {
+                var target = new Rectangle(2, 4);
+                var subject = new Rectangle(3, 3);
+                var result = subject.Match(target);
+                Assert.True(target.CanHold(result));
+            }
+
+            [Test]
+            public void Given_a_narrower_target_it_will_return_a_rectangle_that_matches_on_width()
+            {
+                var target = new Rectangle(2, 4);
+                var subject = new Rectangle(3, 3);
+                var result = subject.Match(target);
+                Assert.AreEqual(target.Width, result.Width);
+            }
+
+            [Test]
+            public void Given_a_smaller_in_height_target_it_will_return_a_rectangle_that_fits_within_target()
+            {
+                var target = new Rectangle(4, 2);
+                var subject = new Rectangle(3, 3);
+                var result = subject.Match(target);
+                Assert.True(target.CanHold(result));
+            }
+
+            [Test]
+            public void Given_a_smaller_in_height_target_it_will_return_a_rectangle_that_matches_on_height()
+            {
+                var target = new Rectangle(4, 2);
+                var subject = new Rectangle(3, 3);
+                var result = subject.Match(target);
+                Assert.AreEqual(target.Height, result.Height);
+            }
+
+            [Test]
+            public void Given_a_smaller_target_the_result_will_still_have_the_same_aspect()
+            {
+                var target = new Rectangle(40, 20);
+                var subject = new Rectangle(30, 30);
+                var result = subject.Match(target);
+                Assert.True(result.Height / result.Width == 1);
             }
         }
     }
