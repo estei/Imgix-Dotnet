@@ -87,6 +87,7 @@ namespace Imgix_Dotnet.Macros
         /// <summary>
         ///     Resizes the image around a focal point
         ///     Crops the image to the aspect ratio with the focal point as close to center as possible.
+        ///     Will not stretch the image to the width and height since this will just be a bigger picture with the same details.
         /// </summary>
         /// <param name="image">The image to run the macro on</param>
         /// <param name="x">
@@ -107,14 +108,18 @@ namespace Imgix_Dotnet.Macros
         public static ImgixImage FocalResize(this ImgixImage image, double x, double y, int width,
             int height, int sourceWidth, int sourceHeight)
         {
-            var cropRectangle = CreateMatchingCropRectangle(width, height, sourceWidth, sourceHeight);
-            return image.FocalCrop(x, y, cropRectangle.Width, cropRectangle.Height, sourceWidth,
-                sourceHeight).Width(width).Height(height);
+            var resizeRectangle = new Rectangle(width, height);
+            var imageRectangle = new Rectangle(sourceWidth, sourceHeight);
+            var cropRectangle = resizeRectangle.Match(imageRectangle);
+            var croppedImage = image.FocalCrop(x, y, cropRectangle.Width, cropRectangle.Height, sourceWidth,
+                sourceHeight);
+            return !imageRectangle.CanHold(resizeRectangle) ? croppedImage : croppedImage.Width(width).Height(height);
         }
 
         /// <summary>
         ///     Resizes the image around a focal point
         ///     Crops the image to the aspect ratio with the focal point as close to center as possible.
+        ///     Will not stretch the image to the width and height since this will just be a bigger picture with the same details.
         /// </summary>
         /// <param name="image">The image to run the macro on</param>
         /// <param name="x">The horizontal position of the focal point</param>
@@ -127,17 +132,12 @@ namespace Imgix_Dotnet.Macros
         public static ImgixImage FocalResize(this ImgixImage image, int x, int y, int width,
             int height, int sourceWidth, int sourceHeight)
         {
-            var cropRectangle = CreateMatchingCropRectangle(width, height, sourceWidth, sourceHeight);
-            return image.FocalCrop(x, y, cropRectangle.Width, cropRectangle.Height, sourceWidth,
-                sourceHeight).Width(width).Height(height);
-        }
-
-        private static Rectangle CreateMatchingCropRectangle(int width, int height, int sourceWidth, int sourceHeight)
-        {
-            var cropRectangle = new Rectangle(width, height);
+            var resizeRectangle = new Rectangle(width, height);
             var imageRectangle = new Rectangle(sourceWidth, sourceHeight);
-            cropRectangle = cropRectangle.Match(imageRectangle);
-            return cropRectangle;
+            var cropRectangle = resizeRectangle.Match(imageRectangle);
+            var croppedImage = image.FocalCrop(x, y, cropRectangle.Width, cropRectangle.Height, sourceWidth,
+                sourceHeight);
+            return !imageRectangle.CanHold(resizeRectangle) ? croppedImage : croppedImage.Width(width).Height(height);
         }
     }
 }

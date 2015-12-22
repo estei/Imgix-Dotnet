@@ -168,6 +168,14 @@ namespace Imgix_Dotnet.Tests.Macros
                 {
                     ImgixImageAsserts.HasQueryParameter(Image.FocalResize(10, 10, 50, 40, 40, 40), "rect", "0,0,40,32");
                 }
+
+                [Test]
+                public void It_should_not_stretch_the_cropped_image()
+                {
+                    var result = Image.FocalResize(10, 10, 50, 40, 40, 40);
+                    Assert.False(result.ToString().Contains("w="));
+                    Assert.False(result.ToString().Contains("h="));
+                }
             }
 
             public class GivenCropThatFitsInsideAndPercentagePositioned : FocalResize
@@ -220,6 +228,14 @@ namespace Imgix_Dotnet.Tests.Macros
                 {
                     ImgixImageAsserts.HasQueryParameter(Image.FocalResize(0.5, 0.5, 50, 40, 40, 40), "rect", "0,4,40,32");
                 }
+
+                [Test]
+                public void It_should_not_stretch_the_cropped_image()
+                {
+                    var result = Image.FocalResize(0.5, 0.5, 50, 40, 40, 40);
+                    Assert.False(result.ToString().Contains("w="));
+                    Assert.False(result.ToString().Contains("h="));
+                }
             }
 
             public class GivenAWidth : FocalResize
@@ -227,8 +243,8 @@ namespace Imgix_Dotnet.Tests.Macros
                 [Test]
                 public void A_w_property_should_be_added_to_the_url()
                 {
-                    ImgixImageAsserts.HasQueryParameter(Image.FocalResize(0.5, 0.5, 50, 50, 40, 40), "w", "50");
-                    ImgixImageAsserts.HasQueryParameter(Image.FocalResize(10, 10, 50, 50, 40, 40), "w", "50");
+                    ImgixImageAsserts.HasQueryParameter(Image.FocalResize(0.5, 0.5, 35, 35, 40, 40), "w", "35");
+                    ImgixImageAsserts.HasQueryParameter(Image.FocalResize(10, 10, 35, 35, 40, 40), "w", "35");
                 }
             }
 
@@ -237,9 +253,11 @@ namespace Imgix_Dotnet.Tests.Macros
                 [Test]
                 public void An_h_property_should_be_added_to_the_url()
                 {
-                    ImgixImageAsserts.HasQueryParameter(Image.FocalResize(0.5, 0.5, 50, 50, 40, 40), "h", "50");
-                    ImgixImageAsserts.HasQueryParameter(Image.FocalResize(10, 10, 50, 50, 40, 40), "h", "50");
+                    ImgixImageAsserts.HasQueryParameter(Image.FocalResize(0.5, 0.5, 35, 35, 40, 40), "h", "35");
+                    ImgixImageAsserts.HasQueryParameter(Image.FocalResize(10, 10, 35, 35, 40, 40), "h", "35");
                 }
+
+
             }
         }
     }
